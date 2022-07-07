@@ -1,0 +1,227 @@
+﻿cl : command line warning D9038: /ZI is not supported on this platform; enabling /Zi instead
+cl : command line warning D9002: ignoring unknown option '/ZI'
+  Application.cpp
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.29.30133\include\xutility(149,77): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.29.30133\include\memory(2014): message : see reference to function template instantiation 'void std::_Construct_in_place<_Ty,int,int,int&,int,int&,float,float,float>(_Ty &,int &&,int &&,int &,int &&,int &,float &&,float &&,float &&) noexcept(false)' being compiled
+          with
+          [
+              _Ty=Camera
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.29.30133\include\memory(2726): message : see reference to function template instantiation 'std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<int,int,int&,int,int&,float,float,float>(int &&,int &&,int &,int &&,int &,float &&,float &&,float &&)' being compiled
+          with
+          [
+              _Ty=Camera
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.29.30133\include\memory(2726): message : see reference to function template instantiation 'std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<int,int,int&,int,int&,float,float,float>(int &&,int &&,int &,int &&,int &,float &&,float &&,float &&)' being compiled
+          with
+          [
+              _Ty=Camera
+          ]
+D:\InternGL\MiniGameStarter\TrainingFramework\src\Application.cpp(20): message : see reference to function template instantiation 'std::shared_ptr<Camera> std::make_shared<Camera,int,int,int&,int,int&,float,float,float>(int &&,int &&,int &,int &&,int &,float &&,float &&,float &&)' being compiled
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.29.30133\include\xutility(149,77): warning C4244: 'argument': conversion from '_Ty' to 'GLfloat', possible loss of data
+          with
+          [
+              _Ty=int
+          ]
+  ResourceManagers.cpp
+  Font.cpp
+  GameButton.cpp
+  Sprite2D.cpp
+  Camera.cpp
+  Sprite3D.cpp
+  Model.cpp
+  Shader.cpp
+  SpriteAnimation.cpp
+D:\InternGL\MiniGameStarter\TrainingFramework\src\GameObject\SpriteAnimation.cpp(82,39): warning C4244: 'argument': conversion from 'GLint' to 'GLfloat', possible loss of data
+D:\InternGL\MiniGameStarter\TrainingFramework\src\GameObject\SpriteAnimation.cpp(87,39): warning C4244: 'argument': conversion from 'GLint' to 'GLfloat', possible loss of data
+D:\InternGL\MiniGameStarter\TrainingFramework\src\GameObject\SpriteAnimation.cpp(92,39): warning C4244: 'argument': conversion from 'GLint' to 'GLfloat', possible loss of data
+D:\InternGL\MiniGameStarter\TrainingFramework\src\GameObject\SpriteAnimation.cpp(97,39): warning C4244: 'argument': conversion from 'GLint' to 'GLfloat', possible loss of data
+  Text.cpp
+  Texture.cpp
+  GameStateBase.cpp
+  GameStateMachine.cpp
+  GSIntro.cpp
+D:\InternGL\MiniGameStarter\TrainingFramework\src\GameStates\GSIntro.cpp(20,86): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+D:\InternGL\MiniGameStarter\TrainingFramework\src\GameStates\GSIntro.cpp(20,52): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+  GSMenu.cpp
+  GSPlay.cpp
+D:\InternGL\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(34,92): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+D:\InternGL\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(34,58): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+D:\InternGL\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(146,2): warning C4065: switch statement contains 'default' but no 'case' labels
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.29.30133\include\xutility(149,77): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.29.30133\include\memory(2014): message : see reference to function template instantiation 'void std::_Construct_in_place<_Ty,std::shared_ptr<Shader>&,std::shared_ptr<Font>&,const char(&)[10],TextColor,double>(_Ty &,std::shared_ptr<Shader> &,std::shared_ptr<Font> &,const char (&)[10],TextColor &&,double &&) noexcept(false)' being compiled
+          with
+          [
+              _Ty=Text
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.29.30133\include\memory(2726): message : see reference to function template instantiation 'std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<std::shared_ptr<Shader>&,std::shared_ptr<Font>&,const char(&)[10],TextColor,double>(std::shared_ptr<Shader> &,std::shared_ptr<Font> &,const char (&)[10],TextColor &&,double &&)' being compiled
+          with
+          [
+              _Ty=Text
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.29.30133\include\memory(2726): message : see reference to function template instantiation 'std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<std::shared_ptr<Shader>&,std::shared_ptr<Font>&,const char(&)[10],TextColor,double>(std::shared_ptr<Shader> &,std::shared_ptr<Font> &,const char (&)[10],TextColor &&,double &&)' being compiled
+          with
+          [
+              _Ty=Text
+          ]
+D:\InternGL\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(50): message : see reference to function template instantiation 'std::shared_ptr<Text> std::make_shared<Text,std::shared_ptr<Shader>&,std::shared_ptr<Font>&,const char(&)[10],TextColor,double>(std::shared_ptr<Shader> &,std::shared_ptr<Font> &,const char (&)[10],TextColor &&,double &&)' being compiled
+  TrainingFramework.cpp
+  Generating Code...
+Application.obj : error LNK2019: unresolved external symbol glBlendFunc referenced in function "public: void __cdecl Application::Init(void)" (?Init@Application@@QEAAXXZ)
+Shader.obj : error LNK2001: unresolved external symbol glBlendFunc
+Application.obj : error LNK2019: unresolved external symbol glClear referenced in function "public: void __cdecl Application::Render(void)" (?Render@Application@@QEAAXXZ)
+Application.obj : error LNK2019: unresolved external symbol glClearColor referenced in function "public: void __cdecl Application::Init(void)" (?Init@Application@@QEAAXXZ)
+Application.obj : error LNK2019: unresolved external symbol glEnable referenced in function "public: void __cdecl Application::Init(void)" (?Init@Application@@QEAAXXZ)
+Sprite3D.obj : error LNK2001: unresolved external symbol glEnable
+Shader.obj : error LNK2001: unresolved external symbol glEnable
+SpriteAnimation.obj : error LNK2001: unresolved external symbol glEnable
+ResourceManagers.obj : error LNK2019: unresolved external symbol "public: void __cdecl SoLoud::AudioSource::setLooping(bool)" (?setLooping@AudioSource@SoLoud@@QEAAX_N@Z) referenced in function "public: void __cdecl ResourceManagers::PlaySound(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,bool)" (?PlaySound@ResourceManagers@@QEAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@_N@Z)
+ResourceManagers.obj : error LNK2019: unresolved external symbol "public: __cdecl SoLoud::Soloud::Soloud(void)" (??0Soloud@SoLoud@@QEAA@XZ) referenced in function "public: __cdecl ResourceManagers::ResourceManagers(void)" (??0ResourceManagers@@QEAA@XZ)
+ResourceManagers.obj : error LNK2019: unresolved external symbol "public: __cdecl SoLoud::Soloud::~Soloud(void)" (??1Soloud@SoLoud@@QEAA@XZ) referenced in function "public: virtual __cdecl ResourceManagers::~ResourceManagers(void)" (??1ResourceManagers@@UEAA@XZ)
+ResourceManagers.obj : error LNK2019: unresolved external symbol "public: unsigned int __cdecl SoLoud::Soloud::init(unsigned int,unsigned int,unsigned int,unsigned int,unsigned int)" (?init@Soloud@SoLoud@@QEAAIIIIII@Z) referenced in function "public: __cdecl ResourceManagers::ResourceManagers(void)" (??0ResourceManagers@@QEAA@XZ)
+ResourceManagers.obj : error LNK2019: unresolved external symbol "public: void __cdecl SoLoud::Soloud::deinit(void)" (?deinit@Soloud@SoLoud@@QEAAXXZ) referenced in function "public: virtual __cdecl ResourceManagers::~ResourceManagers(void)" (??1ResourceManagers@@UEAA@XZ)
+ResourceManagers.obj : error LNK2019: unresolved external symbol "public: unsigned int __cdecl SoLoud::Soloud::play(class SoLoud::AudioSource &,float,float,bool,unsigned int)" (?play@Soloud@SoLoud@@QEAAIAEAVAudioSource@2@MM_NI@Z) referenced in function "public: void __cdecl ResourceManagers::PlaySound(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,bool)" (?PlaySound@ResourceManagers@@QEAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@_N@Z)
+ResourceManagers.obj : error LNK2019: unresolved external symbol "public: void __cdecl SoLoud::Soloud::stopAudioSource(class SoLoud::AudioSource &)" (?stopAudioSource@Soloud@SoLoud@@QEAAXAEAVAudioSource@2@@Z) referenced in function "public: void __cdecl ResourceManagers::StopSound(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (?StopSound@ResourceManagers@@QEAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+ResourceManagers.obj : error LNK2019: unresolved external symbol "public: __cdecl SoLoud::Wav::Wav(void)" (??0Wav@SoLoud@@QEAA@XZ) referenced in function "void __cdecl std::_Construct_in_place<class SoLoud::Wav>(class SoLoud::Wav &)" (??$_Construct_in_place@VWav@SoLoud@@$$V@std@@YAXAEAVWav@SoLoud@@@Z)
+ResourceManagers.obj : error LNK2019: unresolved external symbol "public: unsigned int __cdecl SoLoud::Wav::load(char const *)" (?load@Wav@SoLoud@@QEAAIPEBD@Z) referenced in function "public: void __cdecl ResourceManagers::AddSound(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (?AddSound@ResourceManagers@@QEAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+Text.obj : error LNK2001: unresolved external symbol glBindTexture
+Texture.obj : error LNK2001: unresolved external symbol glBindTexture
+Font.obj : error LNK2001: unresolved external symbol glBindTexture
+Sprite2D.obj : error LNK2001: unresolved external symbol glBindTexture
+Sprite3D.obj : error LNK2001: unresolved external symbol glBindTexture
+SpriteAnimation.obj : error LNK2001: unresolved external symbol glBindTexture
+Font.obj : error LNK2019: unresolved external symbol glGenBuffers referenced in function "public: bool __cdecl Font::Init(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (?Init@Font@@QEAA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+Model.obj : error LNK2001: unresolved external symbol glGenBuffers
+Font.obj : error LNK2019: unresolved external symbol glGenTextures referenced in function "public: bool __cdecl Font::Init(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (?Init@Font@@QEAA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+Texture.obj : error LNK2001: unresolved external symbol glGenTextures
+Font.obj : error LNK2019: unresolved external symbol glPixelStorei referenced in function "public: bool __cdecl Font::Init(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (?Init@Font@@QEAA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+Font.obj : error LNK2019: unresolved external symbol glTexParameteri referenced in function "public: bool __cdecl Font::Init(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (?Init@Font@@QEAA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+Texture.obj : error LNK2001: unresolved external symbol glTexParameteri
+Font.obj : error LNK2019: unresolved external symbol FT_Init_FreeType referenced in function "public: bool __cdecl Font::Init(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (?Init@Font@@QEAA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+Font.obj : error LNK2019: unresolved external symbol FT_Done_FreeType referenced in function "public: __cdecl Font::~Font(void)" (??1Font@@QEAA@XZ)
+Font.obj : error LNK2019: unresolved external symbol FT_New_Face referenced in function "public: bool __cdecl Font::Init(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (?Init@Font@@QEAA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+Font.obj : error LNK2019: unresolved external symbol FT_Done_Face referenced in function "public: __cdecl Font::~Font(void)" (??1Font@@QEAA@XZ)
+Font.obj : error LNK2019: unresolved external symbol FT_Set_Pixel_Sizes referenced in function "public: bool __cdecl Font::Init(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (?Init@Font@@QEAA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+Sprite2D.obj : error LNK2019: unresolved external symbol glActiveTexture referenced in function "public: virtual void __cdecl Sprite2D::Draw(void)" (?Draw@Sprite2D@@UEAAXXZ)
+Sprite3D.obj : error LNK2001: unresolved external symbol glActiveTexture
+SpriteAnimation.obj : error LNK2001: unresolved external symbol glActiveTexture
+Text.obj : error LNK2001: unresolved external symbol glActiveTexture
+Text.obj : error LNK2001: unresolved external symbol glBindBuffer
+Sprite2D.obj : error LNK2001: unresolved external symbol glBindBuffer
+Sprite3D.obj : error LNK2001: unresolved external symbol glBindBuffer
+Model.obj : error LNK2001: unresolved external symbol glBindBuffer
+SpriteAnimation.obj : error LNK2001: unresolved external symbol glBindBuffer
+Sprite2D.obj : error LNK2019: unresolved external symbol glDrawElements referenced in function "public: virtual void __cdecl Sprite2D::Draw(void)" (?Draw@Sprite2D@@UEAAXXZ)
+Sprite3D.obj : error LNK2001: unresolved external symbol glDrawElements
+SpriteAnimation.obj : error LNK2001: unresolved external symbol glDrawElements
+Sprite2D.obj : error LNK2019: unresolved external symbol glEnableVertexAttribArray referenced in function "public: virtual void __cdecl Sprite2D::Draw(void)" (?Draw@Sprite2D@@UEAAXXZ)
+Sprite3D.obj : error LNK2001: unresolved external symbol glEnableVertexAttribArray
+SpriteAnimation.obj : error LNK2001: unresolved external symbol glEnableVertexAttribArray
+Text.obj : error LNK2001: unresolved external symbol glEnableVertexAttribArray
+Sprite2D.obj : error LNK2019: unresolved external symbol glUniform1f referenced in function "public: virtual void __cdecl Sprite2D::Draw(void)" (?Draw@Sprite2D@@UEAAXXZ)
+Sprite3D.obj : error LNK2001: unresolved external symbol glUniform1f
+SpriteAnimation.obj : error LNK2001: unresolved external symbol glUniform1f
+Sprite2D.obj : error LNK2019: unresolved external symbol glUniform1i referenced in function "public: virtual void __cdecl Sprite2D::Draw(void)" (?Draw@Sprite2D@@UEAAXXZ)
+Sprite3D.obj : error LNK2001: unresolved external symbol glUniform1i
+SpriteAnimation.obj : error LNK2001: unresolved external symbol glUniform1i
+Text.obj : error LNK2001: unresolved external symbol glUniform1i
+Sprite2D.obj : error LNK2019: unresolved external symbol glUniform4f referenced in function "public: virtual void __cdecl Sprite2D::Draw(void)" (?Draw@Sprite2D@@UEAAXXZ)
+Sprite3D.obj : error LNK2001: unresolved external symbol glUniform4f
+Sprite2D.obj : error LNK2019: unresolved external symbol glUniformMatrix4fv referenced in function "public: virtual void __cdecl Sprite2D::Draw(void)" (?Draw@Sprite2D@@UEAAXXZ)
+Sprite3D.obj : error LNK2001: unresolved external symbol glUniformMatrix4fv
+SpriteAnimation.obj : error LNK2001: unresolved external symbol glUniformMatrix4fv
+Sprite2D.obj : error LNK2019: unresolved external symbol glUseProgram referenced in function "public: virtual void __cdecl Sprite2D::Draw(void)" (?Draw@Sprite2D@@UEAAXXZ)
+Sprite3D.obj : error LNK2001: unresolved external symbol glUseProgram
+SpriteAnimation.obj : error LNK2001: unresolved external symbol glUseProgram
+Text.obj : error LNK2001: unresolved external symbol glUseProgram
+Sprite2D.obj : error LNK2019: unresolved external symbol glVertexAttribPointer referenced in function "public: virtual void __cdecl Sprite2D::Draw(void)" (?Draw@Sprite2D@@UEAAXXZ)
+Sprite3D.obj : error LNK2001: unresolved external symbol glVertexAttribPointer
+SpriteAnimation.obj : error LNK2001: unresolved external symbol glVertexAttribPointer
+Text.obj : error LNK2001: unresolved external symbol glVertexAttribPointer
+Sprite2D.obj : error LNK2019: unresolved external symbol "public: class Vector3 & __cdecl Vector3::operator=(class Vector3 const &)" (??4Vector3@@QEAAAEAV0@AEBV0@@Z) referenced in function "public: void __cdecl Sprite2D::Set2DPosition(int,int)" (?Set2DPosition@Sprite2D@@QEAAXHH@Z)
+Camera.obj : error LNK2001: unresolved external symbol "public: class Vector3 & __cdecl Vector3::operator=(class Vector3 const &)" (??4Vector3@@QEAAAEAV0@AEBV0@@Z)
+SpriteAnimation.obj : error LNK2001: unresolved external symbol "public: class Vector3 & __cdecl Vector3::operator=(class Vector3 const &)" (??4Vector3@@QEAAAEAV0@AEBV0@@Z)
+Text.obj : error LNK2001: unresolved external symbol "public: class Vector3 & __cdecl Vector3::operator=(class Vector3 const &)" (??4Vector3@@QEAAAEAV0@AEBV0@@Z)
+Text.obj : error LNK2019: unresolved external symbol "public: __cdecl Matrix::Matrix(class Matrix const &)" (??0Matrix@@QEAA@AEBV0@@Z) referenced in function "public: __cdecl std::bad_array_new_length::bad_array_new_length(class std::bad_array_new_length const &)" (??0bad_array_new_length@std@@QEAA@AEBV01@@Z)
+Sprite2D.obj : error LNK2001: unresolved external symbol "public: __cdecl Matrix::Matrix(class Matrix const &)" (??0Matrix@@QEAA@AEBV0@@Z)
+Camera.obj : error LNK2001: unresolved external symbol "public: __cdecl Matrix::Matrix(class Matrix const &)" (??0Matrix@@QEAA@AEBV0@@Z)
+Sprite3D.obj : error LNK2001: unresolved external symbol "public: __cdecl Matrix::Matrix(class Matrix const &)" (??0Matrix@@QEAA@AEBV0@@Z)
+SpriteAnimation.obj : error LNK2001: unresolved external symbol "public: __cdecl Matrix::Matrix(class Matrix const &)" (??0Matrix@@QEAA@AEBV0@@Z)
+Sprite2D.obj : error LNK2019: unresolved external symbol "public: class Matrix & __cdecl Matrix::SetRotationX(float)" (?SetRotationX@Matrix@@QEAAAEAV1@M@Z) referenced in function "public: void __cdecl BaseObject::CalculateWorldMatrix(void)" (?CalculateWorldMatrix@BaseObject@@QEAAXXZ)
+Sprite3D.obj : error LNK2001: unresolved external symbol "public: class Matrix & __cdecl Matrix::SetRotationX(float)" (?SetRotationX@Matrix@@QEAAAEAV1@M@Z)
+SpriteAnimation.obj : error LNK2001: unresolved external symbol "public: class Matrix & __cdecl Matrix::SetRotationX(float)" (?SetRotationX@Matrix@@QEAAAEAV1@M@Z)
+Text.obj : error LNK2001: unresolved external symbol "public: class Matrix & __cdecl Matrix::SetRotationX(float)" (?SetRotationX@Matrix@@QEAAAEAV1@M@Z)
+Sprite2D.obj : error LNK2019: unresolved external symbol "public: class Matrix & __cdecl Matrix::SetRotationY(float)" (?SetRotationY@Matrix@@QEAAAEAV1@M@Z) referenced in function "public: void __cdecl BaseObject::CalculateWorldMatrix(void)" (?CalculateWorldMatrix@BaseObject@@QEAAXXZ)
+Sprite3D.obj : error LNK2001: unresolved external symbol "public: class Matrix & __cdecl Matrix::SetRotationY(float)" (?SetRotationY@Matrix@@QEAAAEAV1@M@Z)
+SpriteAnimation.obj : error LNK2001: unresolved external symbol "public: class Matrix & __cdecl Matrix::SetRotationY(float)" (?SetRotationY@Matrix@@QEAAAEAV1@M@Z)
+Text.obj : error LNK2001: unresolved external symbol "public: class Matrix & __cdecl Matrix::SetRotationY(float)" (?SetRotationY@Matrix@@QEAAAEAV1@M@Z)
+Sprite2D.obj : error LNK2019: unresolved external symbol "public: class Matrix & __cdecl Matrix::SetRotationZ(float)" (?SetRotationZ@Matrix@@QEAAAEAV1@M@Z) referenced in function "public: void __cdecl BaseObject::CalculateWorldMatrix(void)" (?CalculateWorldMatrix@BaseObject@@QEAAXXZ)
+Sprite3D.obj : error LNK2001: unresolved external symbol "public: class Matrix & __cdecl Matrix::SetRotationZ(float)" (?SetRotationZ@Matrix@@QEAAAEAV1@M@Z)
+SpriteAnimation.obj : error LNK2001: unresolved external symbol "public: class Matrix & __cdecl Matrix::SetRotationZ(float)" (?SetRotationZ@Matrix@@QEAAAEAV1@M@Z)
+Text.obj : error LNK2001: unresolved external symbol "public: class Matrix & __cdecl Matrix::SetRotationZ(float)" (?SetRotationZ@Matrix@@QEAAAEAV1@M@Z)
+Sprite2D.obj : error LNK2019: unresolved external symbol "public: class Matrix & __cdecl Matrix::SetScale(class Vector3 &)" (?SetScale@Matrix@@QEAAAEAV1@AEAVVector3@@@Z) referenced in function "public: void __cdecl BaseObject::CalculateWorldMatrix(void)" (?CalculateWorldMatrix@BaseObject@@QEAAXXZ)
+Sprite3D.obj : error LNK2001: unresolved external symbol "public: class Matrix & __cdecl Matrix::SetScale(class Vector3 &)" (?SetScale@Matrix@@QEAAAEAV1@AEAVVector3@@@Z)
+SpriteAnimation.obj : error LNK2001: unresolved external symbol "public: class Matrix & __cdecl Matrix::SetScale(class Vector3 &)" (?SetScale@Matrix@@QEAAAEAV1@AEAVVector3@@@Z)
+Text.obj : error LNK2001: unresolved external symbol "public: class Matrix & __cdecl Matrix::SetScale(class Vector3 &)" (?SetScale@Matrix@@QEAAAEAV1@AEAVVector3@@@Z)
+Sprite2D.obj : error LNK2019: unresolved external symbol "public: class Matrix & __cdecl Matrix::SetTranslation(class Vector3 &)" (?SetTranslation@Matrix@@QEAAAEAV1@AEAVVector3@@@Z) referenced in function "public: void __cdecl BaseObject::CalculateWorldMatrix(void)" (?CalculateWorldMatrix@BaseObject@@QEAAXXZ)
+Sprite3D.obj : error LNK2001: unresolved external symbol "public: class Matrix & __cdecl Matrix::SetTranslation(class Vector3 &)" (?SetTranslation@Matrix@@QEAAAEAV1@AEAVVector3@@@Z)
+SpriteAnimation.obj : error LNK2001: unresolved external symbol "public: class Matrix & __cdecl Matrix::SetTranslation(class Vector3 &)" (?SetTranslation@Matrix@@QEAAAEAV1@AEAVVector3@@@Z)
+Text.obj : error LNK2001: unresolved external symbol "public: class Matrix & __cdecl Matrix::SetTranslation(class Vector3 &)" (?SetTranslation@Matrix@@QEAAAEAV1@AEAVVector3@@@Z)
+Text.obj : error LNK2001: unresolved external symbol "public: class Matrix __cdecl Matrix::operator*(class Matrix)" (??DMatrix@@QEAA?AV0@V0@@Z)
+Sprite2D.obj : error LNK2001: unresolved external symbol "public: class Matrix __cdecl Matrix::operator*(class Matrix)" (??DMatrix@@QEAA?AV0@V0@@Z)
+Camera.obj : error LNK2001: unresolved external symbol "public: class Matrix __cdecl Matrix::operator*(class Matrix)" (??DMatrix@@QEAA?AV0@V0@@Z)
+Sprite3D.obj : error LNK2001: unresolved external symbol "public: class Matrix __cdecl Matrix::operator*(class Matrix)" (??DMatrix@@QEAA?AV0@V0@@Z)
+SpriteAnimation.obj : error LNK2001: unresolved external symbol "public: class Matrix __cdecl Matrix::operator*(class Matrix)" (??DMatrix@@QEAA?AV0@V0@@Z)
+Sprite2D.obj : error LNK2019: unresolved external symbol "public: class Matrix & __cdecl Matrix::operator=(class Matrix)" (??4Matrix@@QEAAAEAV0@V0@@Z) referenced in function "public: virtual void __cdecl Sprite2D::Draw(void)" (?Draw@Sprite2D@@UEAAXXZ)
+Sprite3D.obj : error LNK2001: unresolved external symbol "public: class Matrix & __cdecl Matrix::operator=(class Matrix)" (??4Matrix@@QEAAAEAV0@V0@@Z)
+SpriteAnimation.obj : error LNK2001: unresolved external symbol "public: class Matrix & __cdecl Matrix::operator=(class Matrix)" (??4Matrix@@QEAAAEAV0@V0@@Z)
+Text.obj : error LNK2001: unresolved external symbol "public: class Matrix & __cdecl Matrix::operator=(class Matrix)" (??4Matrix@@QEAAAEAV0@V0@@Z)
+Camera.obj : error LNK2019: unresolved external symbol glDepthMask referenced in function "public: __cdecl Camera::Camera(int,float,float,float,float,float,float,float)" (??0Camera@@QEAA@HMMMMMMM@Z)
+Camera.obj : error LNK2019: unresolved external symbol glDisable referenced in function "public: __cdecl Camera::Camera(int,float,float,float,float,float,float,float)" (??0Camera@@QEAA@HMMMMMMM@Z)
+Sprite3D.obj : error LNK2001: unresolved external symbol glDisable
+Camera.obj : error LNK2019: unresolved external symbol "public: class Vector3 & __cdecl Vector3::Normalize(void)" (?Normalize@Vector3@@QEAAAEAV1@XZ) referenced in function "public: void __cdecl Camera::MoveUp(float)" (?MoveUp@Camera@@QEAAXM@Z)
+Camera.obj : error LNK2019: unresolved external symbol "public: class Vector3 & __cdecl Vector3::operator+=(class Vector3)" (??YVector3@@QEAAAEAV0@V0@@Z) referenced in function "public: void __cdecl Camera::MoveUp(float)" (?MoveUp@Camera@@QEAAXM@Z)
+Camera.obj : error LNK2019: unresolved external symbol "public: class Vector3 __cdecl Vector3::operator-(void)" (??GVector3@@QEAA?AV0@XZ) referenced in function "public: void __cdecl Camera::MoveLeft(float)" (?MoveLeft@Camera@@QEAAXM@Z)
+Camera.obj : error LNK2019: unresolved external symbol "public: class Vector3 __cdecl Vector3::operator-(class Vector3 &)" (??GVector3@@QEAA?AV0@AEAV0@@Z) referenced in function "public: void __cdecl Camera::MoveUp(float)" (?MoveUp@Camera@@QEAAXM@Z)
+Camera.obj : error LNK2019: unresolved external symbol "public: class Vector3 __cdecl Vector3::operator*(float)" (??DVector3@@QEAA?AV0@M@Z) referenced in function "public: void __cdecl Camera::MoveUp(float)" (?MoveUp@Camera@@QEAAXM@Z)
+Camera.obj : error LNK2019: unresolved external symbol "public: float __cdecl Vector3::Dot(class Vector3 &)" (?Dot@Vector3@@QEAAMAEAV1@@Z) referenced in function "private: void __cdecl Camera::CalculateViewMatrix(void)" (?CalculateViewMatrix@Camera@@AEAAXXZ)
+Camera.obj : error LNK2019: unresolved external symbol "public: class Vector3 __cdecl Vector3::Cross(class Vector3 &)" (?Cross@Vector3@@QEAA?AV1@AEAV1@@Z) referenced in function "public: void __cdecl Camera::MoveUp(float)" (?MoveUp@Camera@@QEAAXM@Z)
+Camera.obj : error LNK2019: unresolved external symbol "public: class Matrix & __cdecl Matrix::SetIdentity(void)" (?SetIdentity@Matrix@@QEAAAEAV1@XZ) referenced in function "public: __cdecl Camera::Camera(void)" (??0Camera@@QEAA@XZ)
+Camera.obj : error LNK2019: unresolved external symbol "public: class Matrix & __cdecl Matrix::SetOrtho(float,float,float,float,float,float)" (?SetOrtho@Matrix@@QEAAAEAV1@MMMMMM@Z) referenced in function "public: __cdecl Camera::Camera(int,float,float,float,float,float,float,float)" (??0Camera@@QEAA@HMMMMMMM@Z)
+Camera.obj : error LNK2019: unresolved external symbol "public: class Matrix & __cdecl Matrix::SetPerspective(float,float,float,float)" (?SetPerspective@Matrix@@QEAAAEAV1@MMMM@Z) referenced in function "public: __cdecl Camera::Camera(int,class Vector3,class Vector3,class Vector3,float,float,float,float)" (??0Camera@@QEAA@HVVector3@@00MMMM@Z)
+Model.obj : error LNK2019: unresolved external symbol glBufferData referenced in function "public: __cdecl Model::Model(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,unsigned int)" (??0Model@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@I@Z)
+Text.obj : error LNK2001: unresolved external symbol glBufferData
+Shader.obj : error LNK2019: unresolved external symbol glDeleteProgram referenced in function "public: __cdecl Shader::~Shader(void)" (??1Shader@@QEAA@XZ)
+Shader.obj : error LNK2019: unresolved external symbol glDeleteShader referenced in function "public: __cdecl Shader::~Shader(void)" (??1Shader@@QEAA@XZ)
+Shader.obj : error LNK2019: unresolved external symbol glGetAttribLocation referenced in function "public: unsigned int __cdecl Shader::GetAttribLocation(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (?GetAttribLocation@Shader@@QEAAIAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+Shader.obj : error LNK2019: unresolved external symbol glGetUniformLocation referenced in function "public: int __cdecl Shader::Init(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (?Init@Shader@@QEAAHAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0@Z)
+Shader.obj : error LNK2019: unresolved external symbol "unsigned int __cdecl esLoadShader(unsigned int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (?esLoadShader@@YAIIAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z) referenced in function "public: int __cdecl Shader::Init(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (?Init@Shader@@QEAAHAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0@Z)
+Shader.obj : error LNK2019: unresolved external symbol "unsigned int __cdecl esLoadProgram(unsigned int,unsigned int)" (?esLoadProgram@@YAIII@Z) referenced in function "public: int __cdecl Shader::Init(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (?Init@Shader@@QEAAHAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0@Z)
+Text.obj : error LNK2019: unresolved external symbol glDrawArrays referenced in function "public: virtual void __cdecl Text::Draw(void)" (?Draw@Text@@UEAAXXZ)
+Text.obj : error LNK2019: unresolved external symbol glTexImage2D referenced in function "public: virtual void __cdecl Text::Draw(void)" (?Draw@Text@@UEAAXXZ)
+Texture.obj : error LNK2001: unresolved external symbol glTexImage2D
+Text.obj : error LNK2019: unresolved external symbol glUniform4fv referenced in function "public: virtual void __cdecl Text::Draw(void)" (?Draw@Text@@UEAAXXZ)
+Text.obj : error LNK2019: unresolved external symbol "public: class Vector4 & __cdecl Vector4::operator=(class Vector4)" (??4Vector4@@QEAAAEAV0@V0@@Z) referenced in function "public: __cdecl Text::Text(class std::shared_ptr<class Shader>,class std::shared_ptr<class Font>,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,enum TextColor,float,enum TextAlign)" (??0Text@@QEAA@V?$shared_ptr@VShader@@@std@@V?$shared_ptr@VFont@@@2@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@W4TextColor@@MW4TextAlign@@@Z)
+Text.obj : error LNK2019: unresolved external symbol FT_Load_Char referenced in function "public: virtual void __cdecl Text::Draw(void)" (?Draw@Text@@UEAAXXZ)
+Texture.obj : error LNK2019: unresolved external symbol glGenerateMipmap referenced in function "public: int __cdecl Texture::Init(char const *,unsigned int,unsigned int,unsigned int)" (?Init@Texture@@QEAAHPEBDIII@Z)
+Texture.obj : error LNK2019: unresolved external symbol "char * __cdecl LoadTGA(char const *,int *,int *,int *)" (?LoadTGA@@YAPEADPEBDPEAH11@Z) referenced in function "public: int __cdecl Texture::Init(char const *,unsigned int,unsigned int,unsigned int)" (?Init@Texture@@QEAAHPEBDIII@Z)
+TrainingFramework.obj : error LNK2019: unresolved external symbol eglSwapBuffers referenced in function "void __cdecl Draw(class ESContext *)" (?Draw@@YAXPEAVESContext@@@Z)
+TrainingFramework.obj : error LNK2019: unresolved external symbol "void __cdecl esInitContext(class ESContext *)" (?esInitContext@@YAXPEAVESContext@@@Z) referenced in function main
+TrainingFramework.obj : error LNK2019: unresolved external symbol "unsigned char __cdecl esCreateWindow(class ESContext *,char const *,int,int,unsigned int)" (?esCreateWindow@@YAEPEAVESContext@@PEBDHHI@Z) referenced in function main
+TrainingFramework.obj : error LNK2019: unresolved external symbol "void __cdecl esMainLoop(class ESContext *)" (?esMainLoop@@YAXPEAVESContext@@@Z) referenced in function main
+TrainingFramework.obj : error LNK2019: unresolved external symbol "void __cdecl esRegisterDrawFunc(class ESContext *,void (__cdecl*)(class ESContext *))" (?esRegisterDrawFunc@@YAXPEAVESContext@@P6AX0@Z@Z) referenced in function main
+TrainingFramework.obj : error LNK2019: unresolved external symbol "void __cdecl esRegisterUpdateFunc(class ESContext *,void (__cdecl*)(class ESContext *,float))" (?esRegisterUpdateFunc@@YAXPEAVESContext@@P6AX0M@Z@Z) referenced in function main
+TrainingFramework.obj : error LNK2019: unresolved external symbol "void __cdecl esRegisterKeyFunc(class ESContext *,void (__cdecl*)(class ESContext *,unsigned char,bool))" (?esRegisterKeyFunc@@YAXPEAVESContext@@P6AX0E_N@Z@Z) referenced in function main
+TrainingFramework.obj : error LNK2019: unresolved external symbol "void __cdecl esRegisterMouseFunc(class ESContext *,void (__cdecl*)(class ESContext *,int,int,bool))" (?esRegisterMouseFunc@@YAXPEAVESContext@@P6AX0HH_N@Z@Z) referenced in function main
+TrainingFramework.obj : error LNK2019: unresolved external symbol "void __cdecl esRegisterMouseMoveFunc(class ESContext *,void (__cdecl*)(class ESContext *,int,int))" (?esRegisterMouseMoveFunc@@YAXPEAVESContext@@P6AX0HH@Z@Z) referenced in function main
+D:\InternGL\MiniGameStarter\\Lib\AMD\libEGL.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'ARM64'
+D:\InternGL\MiniGameStarter\\Lib\AMD\libGLESv2.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'ARM64'
+D:\InternGL\MiniGameStarter\\Lib\Soloud\soloud_static.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'ARM64'
+D:\InternGL\MiniGameStarter\\Lib\Soloud\soloud_static_d.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'ARM64'
+D:\InternGL\MiniGameStarter\freetype\objs\vc2019\Win32\freetype.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'ARM64'
+D:\InternGL\MiniGameStarter\BIN-AMD\UtilitiesD.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'ARM64'
+D:\InternGL\MiniGameStarter\ARM64\Debug-AMD\TrainingFramework.exe : fatal error LNK1120: 77 unresolved externals

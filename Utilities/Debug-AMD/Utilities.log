@@ -1,0 +1,7 @@
+﻿  esShader.cpp
+  esUtil.cpp
+  esUtil_win.cpp
+  CMath.cpp
+  TGA.cpp
+  Generating Code...
+  Utilities.vcxproj -> D:\InternGL\MiniGameStarter\BIN-AMD\UtilitiesD.lib
