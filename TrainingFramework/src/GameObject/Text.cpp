@@ -39,6 +39,7 @@ void Text::Init()
 {
 	SetCamera(Application::GetInstance()->GetCamera());
 	CalculateWorldMatrix();
+	glGenBuffers(1, &m_vbo);
 }
 
 void Text::Draw()
@@ -47,7 +48,7 @@ void Text::Draw()
 	GLuint iTempShaderVaribleGLID = -1;
 
 	glUseProgram(m_pShader->m_program);
-	glBindBuffer(GL_ARRAY_BUFFER, m_font->GetFontVboId());
+	glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
 
 	iTempShaderVaribleGLID = m_pShader->GetAttribLocation((char*)"a_posL");
 	if (iTempShaderVaribleGLID != -1)
@@ -76,39 +77,35 @@ void Text::Draw()
 	float x = m_position.x;
 	float y = m_position.y;
 
-	FT_GlyphSlot glyphSlot = m_font->GetGlyphSlot();
+	m_vboData.clear();
 	for (const char* p = m_text.c_str(); *p; p++)
 	{
-		if (FT_Load_Char(m_font->GetFace(), *p, FT_LOAD_RENDER))
+		GlyphData glyphData;
+		if (!m_font->GetGlyphData(*p, &glyphData))
 		{
 			continue;
 		}
-		glTexImage2D(
-			GL_TEXTURE_2D,
-			0,
-			GL_ALPHA,
-			glyphSlot->bitmap.width,
-			glyphSlot->bitmap.rows,
-			0,
-			GL_ALPHA,
-			GL_UNSIGNED_BYTE,
-			glyphSlot->bitmap.buffer
-		);
-		float x2 = x + glyphSlot->bitmap_left * sx;
-		float y2 = -y - glyphSlot->bitmap_top * sy;
-		float w = glyphSlot->bitmap.width * sx;
-		float h = glyphSlot->bitmap.rows * sy;
+		float x2 = x + glyphData.left * sx;
+		float y2 = -y - glyphData.top * sy;
+		float w = glyphData.width * sx;
+		float h = glyphData.height * sy;
 		GLfloat box[4][4] = {
-			{x2, -y2 , 0, 0},
-			{x2 + w, -y2 , 1, 0},
-			{x2, -y2 - h, 0, 1},
-			{x2 + w, -y2 - h, 1, 1},
+			{-1, 1 , glyphData.u0, glyphData.v1},
+			{1, 1 ,glyphData.u1, glyphData.v1},
+			{-1, -1, glyphData.u0, glyphData.v0},
+			{1, -1, glyphData.u1, glyphData.v0},
 		};
-		glBufferData(GL_ARRAY_BUFFER, sizeof(box), box, GL_DYNAMIC_DRAW);
-		glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
-		x += (glyphSlot->advance.x >> 6) * sx;
-		y += (glyphSlot->advance.y >> 6) * sy;
+		m_vboData.push_back(Vertex {x2, -y2 , glyphData.u0, glyphData.v1});
+		m_vboData.push_back(Vertex {x2 + w, -y2 , glyphData.u1, glyphData.v1});
+		m_vboData.push_back(Vertex {x2, -y2 - h, glyphData.u0, glyphData.v0});
+		m_vboData.push_back(Vertex {x2 + w, -y2 , glyphData.u1, glyphData.v1});
+		m_vboData.push_back(Vertex {x2, -y2 - h, glyphData.u0, glyphData.v0});
+		m_vboData.push_back(Vertex {x2 + w, -y2 - h, glyphData.u1, glyphData.v0});
+		x += (glyphData.advanceX >> 6) * sx;
+		y += (glyphData.advanceY >> 6) * sy;
 	}
+	glBufferData(GL_ARRAY_BUFFER, m_vboData.size() * sizeof(Vertex), m_vboData.data(), GL_DYNAMIC_DRAW);
+	glDrawArrays(GL_TRIANGLES, 0, m_vboData.size());
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindTexture(GL_TEXTURE_2D, 0);
 }

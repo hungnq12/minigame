@@ -1,12 +1,12 @@
 #pragma once
-#include "BaseObject.h"
-#include <functional>
-class Player:BaseObject 
+#include "Sprite2D.h"
+class Player : public Sprite2D
 {
 public:
-	int atk;
-	Player(int hp, int atk, int def);
+	Player();
 	~Player();
-	void Hit();
-	void GetHit();
+protected:
+	void Attack();
+private:
+	int hp, atk, def;
 };

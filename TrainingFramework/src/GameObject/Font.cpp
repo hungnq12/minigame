@@ -31,6 +31,43 @@ bool Font::Init(const std::string& font)
 	FT_Set_Pixel_Sizes(m_face, 0, 48);
 	m_glyphSlot = m_face->glyph;
 
+	const int k_glyphSlotSize = 64;
+	const int k_atlasSize = 1024;
+	unsigned char* buffer = new unsigned char[k_atlasSize * k_atlasSize];
+	memset(buffer, 0, k_atlasSize * k_atlasSize);
+	int x = 0;
+	int y = 0;
+
+	for (int c = 32; c < 126; c++)
+	{
+		FT_Load_Char(m_face, c, FT_LOAD_RENDER);
+		for (int h = 0; h < m_glyphSlot->bitmap.rows; h++)
+		{
+			memcpy(&buffer[(y + h) * k_atlasSize + x], &m_glyphSlot->bitmap.buffer[h * m_glyphSlot->bitmap.width], m_glyphSlot->bitmap.width);
+		}
+
+		GlyphData glyphData;
+		glyphData.left = m_glyphSlot->bitmap_left;
+		glyphData.top = m_glyphSlot->bitmap_top;
+		glyphData.width = m_glyphSlot->bitmap.width;
+		glyphData.height = m_glyphSlot->bitmap.rows;
+		glyphData.u0 = (float)x / k_atlasSize;
+		glyphData.u1 = (float)(x + glyphData.width) / k_atlasSize;
+		glyphData.v0 = (float)(y + glyphData.height) / k_atlasSize;
+		glyphData.v1 = (float)y / k_atlasSize;
+		glyphData.advanceX = m_glyphSlot->advance.x;
+		glyphData.advanceY = m_glyphSlot->advance.y;
+		m_glyphData.push_back(glyphData);
+
+		x += k_glyphSlotSize;
+
+		if (x >= k_atlasSize)
+		{
+			x = 0;
+			y += k_glyphSlotSize;
+		}
+	}
+
 	glGenTextures(1, &m_textureId);
 	glBindTexture(GL_TEXTURE_2D, m_textureId);
 
@@ -40,9 +77,18 @@ bool Font::Init(const std::string& font)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 
 	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_ALPHA, k_atlasSize, k_atlasSize, 0, GL_ALPHA, GL_UNSIGNED_BYTE, buffer);
+
 	glBindTexture(GL_TEXTURE_2D, 0);
 
 	glGenBuffers(1, &m_vboId);
+	return true;
+}
+
+const bool Font::GetGlyphData(const char c, GlyphData* glyphData)
+{
+	*glyphData = m_glyphData[c - 32];
 	return true;
 }
 

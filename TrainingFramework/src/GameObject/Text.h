@@ -22,6 +22,11 @@ class Font;
 
 class Text : public BaseObject
 {
+	struct Vertex
+	{
+		float x, y;
+		float u, v;
+	};
 public:
 	Text(std::shared_ptr<Shader> shader, std::shared_ptr<Font> font, std::string text, TextColor color, float size, TextAlign align = TextAlign::LEFT);
 	Text(std::shared_ptr<Shader> shader, std::shared_ptr<Font> font, std::string text, Vector4 color, float size, TextAlign align = TextAlign::LEFT);
@@ -40,9 +45,11 @@ public:
 private:
 	std::string				m_text;
 	std::shared_ptr<Font>	m_font;
+	std::vector<Vertex>		m_vboData;
 
 	GLint		m_iHeight;
 	GLint		m_iWidth;
+	GLuint		m_vbo;
 	Vector2		m_scale;
 	TextAlign	m_align;
 	Vector4		EnumToVector(TextColor color);
