@@ -1,12 +1,11 @@
 #pragma once
-#include "Sprite2D.h"
-class Player : public Sprite2D
+#include "SpriteAnimation.h"
+
+class Player : public SpriteAnimation
 {
 public:
-	Player();
+	Player() : SpriteAnimation() {}
+	Player(std::shared_ptr<Model> model, std::shared_ptr<Shader> shader, std::shared_ptr<Texture> texture, GLint numFrames, GLint numActions, GLint currentAction, GLfloat frameTime);
 	~Player();
-protected:
-	void Attack();
-private:
-	int hp, atk, def;
+
 };

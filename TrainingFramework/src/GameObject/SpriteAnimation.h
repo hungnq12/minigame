@@ -14,6 +14,8 @@ protected:
 	GLint			m_currentAction;//index from 0 to m_numActions-1
 
 public:
+	SpriteAnimation() : BaseObject(), m_Vec2DPos(0), m_iHeight(0), m_iWidth(0), m_numFrames(0), m_currentFrame(0), m_frameTime(0), m_currentTime(0), m_numActions(0), m_currentAction(0) {}
+	SpriteAnimation(GLint id, std::shared_ptr<Model> model, std::shared_ptr<Shader> shader, std::shared_ptr<Texture> texture, GLint numFrames, GLint numActions, GLint currentAction, GLfloat frameTime);
 	SpriteAnimation(std::shared_ptr<Model> model, std::shared_ptr<Shader> shader, std::shared_ptr<Texture> texture, GLint numFrames, GLint numActions, GLint currentAction, GLfloat frameTime);
 	~SpriteAnimation();
 

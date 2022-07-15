@@ -51,14 +51,21 @@ void GSPlay::Init()
 	m_score = std::make_shared< Text>(shader, font, "score: 10", TextColor::RED, 1.0);
 	m_score->Set2DPosition(Vector2(5, 25));
 
-	Player* obj = new Player();
+	// player
 	shader = ResourceManagers::GetInstance()->GetShader("Animation");
 	texture = ResourceManagers::GetInstance()->GetTexture("char_red_1.tga");
-	std::shared_ptr<SpriteAnimation> obj = std::make_shared<SpriteAnimation>(model, shader, texture, 8, 11, 1, 0.2f);
-	
+	std::shared_ptr<Player> obj = std::make_shared<Player>(model, shader, texture, 8, 11, 1, 0.2f);
 	obj->Set2DPosition(150, 350);
 	obj->SetSize(160, 200);
 	m_listAnimation.push_back(obj);
+	m_KeyPress = 0;
+
+	shader = ResourceManagers::GetInstance()->GetShader("Animation");
+	texture = ResourceManagers::GetInstance()->GetTexture("char_red_1.tga");
+	std::shared_ptr<Player> obj2 = std::make_shared<Player>(model, shader, texture, 8, 11, 1, 0.2f);
+	obj2->Set2DPosition(650, 350);
+	obj2->SetSize(160, 200);
+	m_listAnimation.push_back(obj2);
 	m_KeyPress = 0;
 }
 

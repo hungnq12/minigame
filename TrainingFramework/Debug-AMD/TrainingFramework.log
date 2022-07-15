@@ -1,75 +1,92 @@
 ﻿  Application.cpp
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\xutility(149,77): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(2014): message : see reference to function template instantiation 'void std::_Construct_in_place<_Ty,int,int,int&,int,int&,float,float,float>(_Ty &,int &&,int &&,int &,int &&,int &,float &&,float &&,float &&) noexcept(false)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\xutility(158,77): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(2029): message : see reference to function template instantiation 'void std::_Construct_in_place<_Ty,int,int,int&,int,int&,float,float,float>(_Ty &,int &&,int &&,int &,int &&,int &,float &&,float &&,float &&) noexcept(false)' being compiled
           with
           [
               _Ty=Camera
           ]
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(2726): message : see reference to function template instantiation 'std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<int,int,int&,int,int&,float,float,float>(int &&,int &&,int &,int &&,int &,float &&,float &&,float &&)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(2748): message : see reference to function template instantiation 'std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<int,int,int&,int,int&,float,float,float>(int &&,int &&,int &,int &&,int &,float &&,float &&,float &&)' being compiled
           with
           [
               _Ty=Camera
           ]
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(2726): message : see reference to function template instantiation 'std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<int,int,int&,int,int&,float,float,float>(int &&,int &&,int &,int &&,int &,float &&,float &&,float &&)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(2748): message : see reference to function template instantiation 'std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<int,int,int&,int,int&,float,float,float>(int &&,int &&,int &,int &&,int &,float &&,float &&,float &&)' being compiled
           with
           [
               _Ty=Camera
           ]
-D:\InternGL\MiniGameStarter\TrainingFramework\src\Application.cpp(20): message : see reference to function template instantiation 'std::shared_ptr<Camera> std::make_shared<Camera,int,int,int&,int,int&,float,float,float>(int &&,int &&,int &,int &&,int &,float &&,float &&,float &&)' being compiled
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\xutility(149,77): warning C4244: 'argument': conversion from '_Ty' to 'GLfloat', possible loss of data
+C:\Users\han.glschool\MiniGame_HungNQ\minigame\TrainingFramework\src\Application.cpp(20): message : see reference to function template instantiation 'std::shared_ptr<Camera> std::make_shared<Camera,int,int,int&,int,int&,float,float,float>(int &&,int &&,int &,int &&,int &,float &&,float &&,float &&)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\xutility(158,77): warning C4244: 'argument': conversion from '_Ty' to 'GLfloat', possible loss of data
           with
           [
               _Ty=int
           ]
   ResourceManagers.cpp
+  Enemy.cpp
   Font.cpp
+C:\Users\han.glschool\MiniGame_HungNQ\minigame\TrainingFramework\src\GameObject\Font.cpp(44,21): warning C4018: '<': signed/unsigned mismatch
   GameButton.cpp
+  Player.cpp
   Sprite2D.cpp
   Camera.cpp
   Sprite3D.cpp
   Model.cpp
-D:\InternGL\MiniGameStarter\TrainingFramework\src\GameObject\Model.cpp(25,18): warning C4244: 'initializing': conversion from 'std::streamoff' to 'size_t', possible loss of data
+C:\Users\han.glschool\MiniGame_HungNQ\minigame\TrainingFramework\src\GameObject\Model.cpp(25,18): warning C4244: 'initializing': conversion from 'std::streamoff' to 'size_t', possible loss of data
   Shader.cpp
   SpriteAnimation.cpp
-D:\InternGL\MiniGameStarter\TrainingFramework\src\GameObject\SpriteAnimation.cpp(82,39): warning C4244: 'argument': conversion from 'GLint' to 'GLfloat', possible loss of data
-D:\InternGL\MiniGameStarter\TrainingFramework\src\GameObject\SpriteAnimation.cpp(87,39): warning C4244: 'argument': conversion from 'GLint' to 'GLfloat', possible loss of data
-D:\InternGL\MiniGameStarter\TrainingFramework\src\GameObject\SpriteAnimation.cpp(92,39): warning C4244: 'argument': conversion from 'GLint' to 'GLfloat', possible loss of data
-D:\InternGL\MiniGameStarter\TrainingFramework\src\GameObject\SpriteAnimation.cpp(97,39): warning C4244: 'argument': conversion from 'GLint' to 'GLfloat', possible loss of data
+C:\Users\han.glschool\MiniGame_HungNQ\minigame\TrainingFramework\src\GameObject\SpriteAnimation.cpp(82,39): warning C4244: 'argument': conversion from 'GLint' to 'GLfloat', possible loss of data
+C:\Users\han.glschool\MiniGame_HungNQ\minigame\TrainingFramework\src\GameObject\SpriteAnimation.cpp(87,39): warning C4244: 'argument': conversion from 'GLint' to 'GLfloat', possible loss of data
+C:\Users\han.glschool\MiniGame_HungNQ\minigame\TrainingFramework\src\GameObject\SpriteAnimation.cpp(92,39): warning C4244: 'argument': conversion from 'GLint' to 'GLfloat', possible loss of data
+C:\Users\han.glschool\MiniGame_HungNQ\minigame\TrainingFramework\src\GameObject\SpriteAnimation.cpp(97,39): warning C4244: 'argument': conversion from 'GLint' to 'GLfloat', possible loss of data
   Text.cpp
   Texture.cpp
   GameStateBase.cpp
   GameStateMachine.cpp
   GSIntro.cpp
-D:\InternGL\MiniGameStarter\TrainingFramework\src\GameStates\GSIntro.cpp(20,86): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-D:\InternGL\MiniGameStarter\TrainingFramework\src\GameStates\GSIntro.cpp(20,52): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+C:\Users\han.glschool\MiniGame_HungNQ\minigame\TrainingFramework\src\GameStates\GSIntro.cpp(20,86): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+C:\Users\han.glschool\MiniGame_HungNQ\minigame\TrainingFramework\src\GameStates\GSIntro.cpp(20,52): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
   GSMenu.cpp
   GSPlay.cpp
-D:\InternGL\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(34,92): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-D:\InternGL\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(34,58): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-D:\InternGL\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(146,2): warning C4065: switch statement contains 'default' but no 'case' labels
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\xutility(149,77): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+C:\Users\han.glschool\MiniGame_HungNQ\minigame\TrainingFramework\src\GameStates\GSPlay.cpp(35,92): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+C:\Users\han.glschool\MiniGame_HungNQ\minigame\TrainingFramework\src\GameStates\GSPlay.cpp(35,58): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+C:\Users\han.glschool\MiniGame_HungNQ\minigame\TrainingFramework\src\GameStates\GSPlay.cpp(146,2): warning C4065: switch statement contains 'default' but no 'case' labels
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\xutility(158,77): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
           with
           [
               _Ty=double
           ]
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(2014): message : see reference to function template instantiation 'void std::_Construct_in_place<_Ty,std::shared_ptr<Shader>&,std::shared_ptr<Font>&,const char(&)[10],TextColor,double>(_Ty &,std::shared_ptr<Shader> &,std::shared_ptr<Font> &,const char (&)[10],TextColor &&,double &&) noexcept(false)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(2029): message : see reference to function template instantiation 'void std::_Construct_in_place<_Ty,std::shared_ptr<Shader>&,std::shared_ptr<Font>&,const char(&)[10],TextColor,double>(_Ty &,std::shared_ptr<Shader> &,std::shared_ptr<Font> &,const char (&)[10],TextColor &&,double &&) noexcept(false)' being compiled
           with
           [
               _Ty=Text
           ]
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(2726): message : see reference to function template instantiation 'std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<std::shared_ptr<Shader>&,std::shared_ptr<Font>&,const char(&)[10],TextColor,double>(std::shared_ptr<Shader> &,std::shared_ptr<Font> &,const char (&)[10],TextColor &&,double &&)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(2748): message : see reference to function template instantiation 'std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<std::shared_ptr<Shader>&,std::shared_ptr<Font>&,const char(&)[10],TextColor,double>(std::shared_ptr<Shader> &,std::shared_ptr<Font> &,const char (&)[10],TextColor &&,double &&)' being compiled
           with
           [
               _Ty=Text
           ]
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(2726): message : see reference to function template instantiation 'std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<std::shared_ptr<Shader>&,std::shared_ptr<Font>&,const char(&)[10],TextColor,double>(std::shared_ptr<Shader> &,std::shared_ptr<Font> &,const char (&)[10],TextColor &&,double &&)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(2748): message : see reference to function template instantiation 'std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<std::shared_ptr<Shader>&,std::shared_ptr<Font>&,const char(&)[10],TextColor,double>(std::shared_ptr<Shader> &,std::shared_ptr<Font> &,const char (&)[10],TextColor &&,double &&)' being compiled
           with
           [
               _Ty=Text
           ]
-D:\InternGL\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(50): message : see reference to function template instantiation 'std::shared_ptr<Text> std::make_shared<Text,std::shared_ptr<Shader>&,std::shared_ptr<Font>&,const char(&)[10],TextColor,double>(std::shared_ptr<Shader> &,std::shared_ptr<Font> &,const char (&)[10],TextColor &&,double &&)' being compiled
+C:\Users\han.glschool\MiniGame_HungNQ\minigame\TrainingFramework\src\GameStates\GSPlay.cpp(51): message : see reference to function template instantiation 'std::shared_ptr<Text> std::make_shared<Text,std::shared_ptr<Shader>&,std::shared_ptr<Font>&,const char(&)[10],TextColor,double>(std::shared_ptr<Shader> &,std::shared_ptr<Font> &,const char (&)[10],TextColor &&,double &&)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\xutility(158,1): error C2661: 'Player::Player': no overloaded function takes 7 arguments
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(2029): message : see reference to function template instantiation 'void std::_Construct_in_place<_Ty,std::shared_ptr<Model>&,std::shared_ptr<Shader>&,std::shared_ptr<Texture>&,int,int,int,float>(_Ty &,std::shared_ptr<Model> &,std::shared_ptr<Shader> &,std::shared_ptr<Texture> &,int &&,int &&,int &&,float &&) noexcept(false)' being compiled
+          with
+          [
+              _Ty=Player
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(2748): message : see reference to function template instantiation 'std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<std::shared_ptr<Model>&,std::shared_ptr<Shader>&,std::shared_ptr<Texture>&,int,int,int,float>(std::shared_ptr<Model> &,std::shared_ptr<Shader> &,std::shared_ptr<Texture> &,int &&,int &&,int &&,float &&)' being compiled
+          with
+          [
+              _Ty=Player
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(2748): message : see reference to function template instantiation 'std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<std::shared_ptr<Model>&,std::shared_ptr<Shader>&,std::shared_ptr<Texture>&,int,int,int,float>(std::shared_ptr<Model> &,std::shared_ptr<Shader> &,std::shared_ptr<Texture> &,int &&,int &&,int &&,float &&)' being compiled
+          with
+          [
+              _Ty=Player
+          ]
+C:\Users\han.glschool\MiniGame_HungNQ\minigame\TrainingFramework\src\GameStates\GSPlay.cpp(56): message : see reference to function template instantiation 'std::shared_ptr<Player> std::make_shared<Player,std::shared_ptr<Model>&,std::shared_ptr<Shader>&,std::shared_ptr<Texture>&,int,int,int,float>(std::shared_ptr<Model> &,std::shared_ptr<Shader> &,std::shared_ptr<Texture> &,int &&,int &&,int &&,float &&)' being compiled
   TrainingFramework.cpp
   Generating Code...
-Application.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
-LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
-  TrainingFramework.vcxproj -> D:\InternGL\MiniGameStarter\BIN-AMD\TrainingFramework.exe
