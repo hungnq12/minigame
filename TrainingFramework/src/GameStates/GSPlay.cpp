@@ -37,7 +37,7 @@ void GSPlay::Init()
 
 	// button close
 	texture = ResourceManagers::GetInstance()->GetTexture("btn_close.tga");
-	std::shared_ptr<GameButton>  button = std::make_shared<GameButton>(model, shader, texture);
+	std::shared_ptr<GameButton> button = std::make_shared<GameButton>(model, shader, texture);
 	button->Set2DPosition(Globals::screenWidth - 50, 50);
 	button->SetSize(50, 50);
 	button->SetOnClick([this]() {
@@ -46,27 +46,65 @@ void GSPlay::Init()
 	m_listButton.push_back(button);
 
 	// score
-	shader = ResourceManagers::GetInstance()->GetShader("TextShader");
+	/*shader = ResourceManagers::GetInstance()->GetShader("TextShader");
 	std::shared_ptr<Font> font = ResourceManagers::GetInstance()->GetFont("Brightly Crush Shine.otf");
-	m_score = std::make_shared< Text>(shader, font, "score: 10", TextColor::RED, 1.0);
-	m_score->Set2DPosition(Vector2(5, 25));
+	m_score = std::make_shared<Text>(shader, font, "score: 10", TextColor::RED, 1.0);
+	m_score->Set2DPosition(Vector2(5, 25));*/
 
 	// player
 	shader = ResourceManagers::GetInstance()->GetShader("Animation");
 	texture = ResourceManagers::GetInstance()->GetTexture("char_red_1.tga");
-	std::shared_ptr<Player> obj = std::make_shared<Player>(model, shader, texture, 8, 11, 1, 0.2f);
-	obj->Set2DPosition(150, 350);
-	obj->SetSize(160, 200);
-	m_listAnimation.push_back(obj);
+	std::shared_ptr<Player> obj1 = std::make_shared<Player>(model, shader, texture, 8, 11, 1, 0.2f);
+	obj1->Set2DPosition(150, 350);
+	obj1->SetSize(160, 200);
+	obj1->SetAtk(10);
+	obj1->SetHp(100);
+	obj1->SetDef(5);
+
+	std::string t_atk = std::to_string(obj1->GetAtk());
+	std::string t_hp = std::to_string(obj1->GetHp());
+	std::string t_def = std::to_string(obj1->GetDef());
+
+	shader = ResourceManagers::GetInstance()->GetShader("TextShader");
+	std::shared_ptr<Font> font = ResourceManagers::GetInstance()->GetFont("Brightly Crush Shine.otf");
+	m_stat = std::make_shared<Text>(shader, font, " atk: " + t_atk + " hp: " + t_hp + " def: " + t_def, TextColor::RED, 1.0);
+	m_stat->Set2DPosition(Vector2(5, 25));
+
+	m_listAnimation.push_back(obj1);
 	m_KeyPress = 0;
 
+	// player
 	shader = ResourceManagers::GetInstance()->GetShader("Animation");
 	texture = ResourceManagers::GetInstance()->GetTexture("char_red_1.tga");
 	std::shared_ptr<Player> obj2 = std::make_shared<Player>(model, shader, texture, 8, 11, 1, 0.2f);
 	obj2->Set2DPosition(650, 350);
 	obj2->SetSize(160, 200);
+	obj2->SetAtk(5);
+	obj2->SetHp(20);
+	obj2->SetDef(5);
+
+	std::string t_atk1 = std::to_string(obj2->GetAtk());
+	std::string t_hp1 = std::to_string(obj2->GetHp());
+	std::string t_def1 = std::to_string(obj2->GetDef());
+
+	shader = ResourceManagers::GetInstance()->GetShader("TextShader");
+	m_stat1 = std::make_shared<Text>(shader, font, " atk: " + t_atk1 + " hp: " + t_hp1 + " def: " + t_def1, TextColor::RED, 1.0);
+	m_stat1->Set2DPosition(Vector2(500, 25));
+
 	m_listAnimation.push_back(obj2);
 	m_KeyPress = 0;
+
+	// button atk
+	model = ResourceManagers::GetInstance()->GetModel("Sprite2D.nfg");
+	shader = ResourceManagers::GetInstance()->GetShader("TextureShader");
+	texture = ResourceManagers::GetInstance()->GetTexture("btn_close.tga");
+	std::shared_ptr<GameButton>  button1 = std::make_shared<GameButton>(model, shader, texture);
+	button1->Set2DPosition(Globals::screenWidth/2, Globals::screenHeight/2);
+	button1->SetSize(50, 50);
+	button1->SetOnClick([this]() {
+		
+		});
+	m_listButton.push_back(button1);
 }
 
 void GSPlay::Exit()
@@ -140,6 +178,13 @@ void GSPlay::HandleTouchEvents(int x, int y, bool bIsPressed)
 			break;
 		}
 	}
+	for (auto button1 : m_listButton)
+	{
+		if (button1->HandleTouchEvents(x, y, bIsPressed))
+		{
+			break;
+		}
+	}
 }
 
 void GSPlay::HandleMouseMoveEvents(int x, int y)
@@ -166,7 +211,8 @@ void GSPlay::Update(float deltaTime)
 void GSPlay::Draw()
 {
 	m_background->Draw();
-	m_score->Draw();
+	m_stat->Draw();
+	m_stat1->Draw();
 	for (auto it : m_listButton)
 	{
 		it->Draw();

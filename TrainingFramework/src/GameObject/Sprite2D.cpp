@@ -101,7 +101,7 @@ void Sprite2D::Update(GLfloat deltatime)
 {
 }
 
-void Sprite2D::Set2DPosition(GLint x, GLint y)
+void Sprite2D::Set2DPosition(GLfloat x, GLfloat y)
 {
 	m_position = Vector3((float)x, (float)y, 0.0f);
 	CalculateWorldMatrix();

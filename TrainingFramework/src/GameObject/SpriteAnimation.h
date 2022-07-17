@@ -23,7 +23,7 @@ public:
 	void		Draw() final;
 	void		Update(GLfloat deltatime) override;
 
-	void		Set2DPosition(GLint x, GLint y);
+	void		Set2DPosition(GLfloat x, GLfloat y);
 	void		SetRotation(Vector3 rotation);
 
 	Vector2		Get2DPosition();
