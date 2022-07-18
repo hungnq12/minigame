@@ -14,18 +14,19 @@ GSMenu::~GSMenu()
 
 void GSMenu::Init()
 {
-	auto model = ResourceManagers::GetInstance()->GetModel("Sprite2D.nfg");
-	auto texture = ResourceManagers::GetInstance()->GetTexture("Previewx3.tga");
-
 	// background
-	auto shader = ResourceManagers::GetInstance()->GetShader("TextureShader");
-	m_background = std::make_shared<Sprite2D>(model, shader, texture);
-	m_background->Set2DPosition(Globals::screenWidth / 2, Globals::screenHeight / 2);
+	auto model_bg = ResourceManagers::GetInstance()->GetModel("Sprite2D.nfg");
+	auto shader_bg = ResourceManagers::GetInstance()->GetShader("TextureShader");
+	auto texture_bg = ResourceManagers::GetInstance()->GetTexture("Previewx3.tga");
+	m_background = std::make_shared<Sprite2D>(model_bg, shader_bg, texture_bg);
+	m_background->Set2DPosition((float)Globals::screenWidth / 2, (float)Globals::screenHeight / 2);
 	m_background->SetSize(Globals::screenWidth, Globals::screenHeight);
 
 	// play button
-	texture = ResourceManagers::GetInstance()->GetTexture("btn_play.tga");
-	std::shared_ptr<GameButton> button = std::make_shared<GameButton>(model, shader, texture);
+	auto model_b = ResourceManagers::GetInstance()->GetModel("Sprite2D.nfg");
+	auto shader_b = ResourceManagers::GetInstance()->GetShader("TextureShader");
+	auto texture_b = ResourceManagers::GetInstance()->GetTexture("btn_play.tga");
+	std::shared_ptr<GameButton> button = std::make_shared<GameButton>(model_b, shader_b, texture_b);
 	button->Set2DPosition(Globals::screenWidth / 2, Globals::screenHeight / 2);
 	button->SetSize(200, 200);
 	button->SetOnClick([]() {
@@ -34,8 +35,8 @@ void GSMenu::Init()
 	m_listButton.push_back(button);
 
 	// exit button
-	texture = ResourceManagers::GetInstance()->GetTexture("btn_close.tga");
-	button = std::make_shared<GameButton>(model, shader, texture);
+	texture_b = ResourceManagers::GetInstance()->GetTexture("btn_close.tga");
+	button = std::make_shared<GameButton>(model_b, shader_b, texture_b);
 	button->Set2DPosition(Globals::screenWidth - 50, 50);
 	button->SetSize(50, 50);
 	button->SetOnClick([]() {
@@ -44,9 +45,9 @@ void GSMenu::Init()
 	m_listButton.push_back(button);
 
 	// game title
-	shader = ResourceManagers::GetInstance()->GetShader("TextShader");
-	std::shared_ptr<Font> font = ResourceManagers::GetInstance()->GetFont("ARCADECLASSIC.ttf");
-	m_textGameName = std::make_shared< Text>(shader, font, "Find My Grandma", Vector4(1.0f, 0.5f, 0.0f, 1.0f), 3.0f);
+	auto shader_t = ResourceManagers::GetInstance()->GetShader("TextShader");
+	auto font = ResourceManagers::GetInstance()->GetFont("ARCADECLASSIC.ttf");
+	m_textGameName = std::make_shared< Text>(shader_t, font, "Find My Grandma", Vector4(1.0f, 0.5f, 0.0f, 1.0f), 3.0f);
 	m_textGameName->Set2DPosition(Vector2(60, 200));
 
 	std::string name = "Alarm01.wav";

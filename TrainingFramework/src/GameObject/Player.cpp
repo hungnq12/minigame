@@ -5,6 +5,10 @@ Player::Player(std::shared_ptr<Model> model, std::shared_ptr<Shader> shader, std
 {
 }
 
+Player::Player()
+{
+}
+
 Player::~Player()
 {
 }

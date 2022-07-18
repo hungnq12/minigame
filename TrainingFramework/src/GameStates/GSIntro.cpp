@@ -9,7 +9,6 @@ GSIntro::~GSIntro()
 {
 }
 
-
 void GSIntro::Init()
 {
 	auto model = ResourceManagers::GetInstance()->GetModel("Sprite2D.nfg");

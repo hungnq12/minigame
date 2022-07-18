@@ -7,6 +7,7 @@ protected:
 	GLint atk, hp, def;
 public:
 	Player(std::shared_ptr<Model> model, std::shared_ptr<Shader> shader, std::shared_ptr<Texture> texture, GLint numFrames, GLint numActions, GLint currentAction, GLfloat frameTime);
+	Player();
 	~Player();
 
 	void SetAtk(GLint atk);

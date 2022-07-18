@@ -22,26 +22,38 @@ GSPlay::GSPlay()
 GSPlay::~GSPlay()
 {
 }
-
+//auto model_c = ResourceManagers::GetInstance()->GetModel("Sprite2D.nfg");
+//auto shader_c = ResourceManagers::GetInstance()->GetShader("Animation");
+//auto texture_c = ResourceManagers::GetInstance()->GetTexture("char_red_1.tga");
+//auto model_bg = ResourceManagers::GetInstance()->GetModel("Sprite2D.nfg");
+//auto shader_bg = ResourceManagers::GetInstance()->GetShader("TextureShader");
+//auto texture_bg = ResourceManagers::GetInstance()->GetTexture("Previewx3.tga");
+//auto model_b = ResourceManagers::GetInstance()->GetModel("Sprite2D.nfg");
+//auto shader_b = ResourceManagers::GetInstance()->GetShader("TextureShader");
+//auto texture_b = ResourceManagers::GetInstance()->GetTexture("Previewx3.tga");
+//auto shader_t = ResourceManagers::GetInstance()->GetShader("TextShader");
+//auto font = ResourceManagers::GetInstance()->GetFont("Brightly Crush Shine.otf");
+std::shared_ptr<Player> obj1 = std::make_shared<Player>();
 
 void GSPlay::Init()
 {
-	auto model = ResourceManagers::GetInstance()->GetModel("Sprite2D.nfg");
-	auto texture = ResourceManagers::GetInstance()->GetTexture("Previewx3.tga");
-
 	// background
-	auto shader = ResourceManagers::GetInstance()->GetShader("TextureShader");
-	m_background = std::make_shared<Sprite2D>(model, shader, texture);
+	auto model_bg = ResourceManagers::GetInstance()->GetModel("Sprite2D.nfg");
+	auto shader_bg = ResourceManagers::GetInstance()->GetShader("TextureShader");
+	auto texture_bg = ResourceManagers::GetInstance()->GetTexture("Previewx3.tga");
+	m_background = std::make_shared<Sprite2D>(model_bg, shader_bg, texture_bg);
 	m_background->Set2DPosition((float)Globals::screenWidth / 2, (float)Globals::screenHeight / 2);
 	m_background->SetSize(Globals::screenWidth, Globals::screenHeight);
 
 	// button close
-	texture = ResourceManagers::GetInstance()->GetTexture("btn_close.tga");
-	std::shared_ptr<GameButton> button = std::make_shared<GameButton>(model, shader, texture);
+	auto model_b = ResourceManagers::GetInstance()->GetModel("Sprite2D.nfg");
+	auto shader_b = ResourceManagers::GetInstance()->GetShader("TextureShader");
+	auto texture_b = ResourceManagers::GetInstance()->GetTexture("btn_close.tga");
+	std::shared_ptr<GameButton> button = std::make_shared<GameButton>(model_b, shader_b, texture_b);
 	button->Set2DPosition(Globals::screenWidth - 50, 50);
 	button->SetSize(50, 50);
 	button->SetOnClick([this]() {
-			GameStateMachine::GetInstance()->PopState();
+		GameStateMachine::GetInstance()->PopState();
 		});
 	m_listButton.push_back(button);
 
@@ -52,9 +64,10 @@ void GSPlay::Init()
 	m_score->Set2DPosition(Vector2(5, 25));*/
 
 	// player
-	shader = ResourceManagers::GetInstance()->GetShader("Animation");
-	texture = ResourceManagers::GetInstance()->GetTexture("char_red_1.tga");
-	std::shared_ptr<Player> obj1 = std::make_shared<Player>(model, shader, texture, 8, 11, 1, 0.2f);
+	auto model_c = ResourceManagers::GetInstance()->GetModel("Sprite2D.nfg");
+	auto shader_c = ResourceManagers::GetInstance()->GetShader("Animation");
+	auto texture_c = ResourceManagers::GetInstance()->GetTexture("char_red_1.tga");
+	std::shared_ptr<Player> obj1 = std::make_shared<Player>(model_c, shader_c, texture_c, 8, 11, 1, 0.2f);
 	obj1->Set2DPosition(150, 350);
 	obj1->SetSize(160, 200);
 	obj1->SetAtk(10);
@@ -65,18 +78,16 @@ void GSPlay::Init()
 	std::string t_hp = std::to_string(obj1->GetHp());
 	std::string t_def = std::to_string(obj1->GetDef());
 
-	shader = ResourceManagers::GetInstance()->GetShader("TextShader");
-	std::shared_ptr<Font> font = ResourceManagers::GetInstance()->GetFont("Brightly Crush Shine.otf");
-	m_stat = std::make_shared<Text>(shader, font, " atk: " + t_atk + " hp: " + t_hp + " def: " + t_def, TextColor::RED, 1.0);
+	auto shader_t = ResourceManagers::GetInstance()->GetShader("TextShader");
+	auto font = ResourceManagers::GetInstance()->GetFont("Brightly Crush Shine.otf");
+	m_stat = std::make_shared<Text>(shader_t, font, " atk: " + t_atk + " hp: " + t_hp + " def: " + t_def, TextColor::RED, 1.0);
 	m_stat->Set2DPosition(Vector2(5, 25));
 
 	m_listAnimation.push_back(obj1);
 	m_KeyPress = 0;
 
 	// player
-	shader = ResourceManagers::GetInstance()->GetShader("Animation");
-	texture = ResourceManagers::GetInstance()->GetTexture("char_red_1.tga");
-	std::shared_ptr<Player> obj2 = std::make_shared<Player>(model, shader, texture, 8, 11, 1, 0.2f);
+	std::shared_ptr<Player> obj2 = std::make_shared<Player>(model_c, shader_c, texture_c, 8, 11, 1, 0.2f);
 	obj2->Set2DPosition(650, 350);
 	obj2->SetSize(160, 200);
 	obj2->SetAtk(5);
@@ -87,24 +98,30 @@ void GSPlay::Init()
 	std::string t_hp1 = std::to_string(obj2->GetHp());
 	std::string t_def1 = std::to_string(obj2->GetDef());
 
-	shader = ResourceManagers::GetInstance()->GetShader("TextShader");
-	m_stat1 = std::make_shared<Text>(shader, font, " atk: " + t_atk1 + " hp: " + t_hp1 + " def: " + t_def1, TextColor::RED, 1.0);
+	m_stat1 = std::make_shared<Text>(shader_t, font, " atk: " + t_atk1 + " hp: " + t_hp1 + " def: " + t_def1, TextColor::RED, 1.0);
 	m_stat1->Set2DPosition(Vector2(500, 25));
 
 	m_listAnimation.push_back(obj2);
 	m_KeyPress = 0;
 
 	// button atk
-	model = ResourceManagers::GetInstance()->GetModel("Sprite2D.nfg");
-	shader = ResourceManagers::GetInstance()->GetShader("TextureShader");
-	texture = ResourceManagers::GetInstance()->GetTexture("btn_close.tga");
-	std::shared_ptr<GameButton>  button1 = std::make_shared<GameButton>(model, shader, texture);
+	std::shared_ptr<GameButton>  button1 = std::make_shared<GameButton>(model_b, shader_b, texture_b);
 	button1->Set2DPosition(Globals::screenWidth/2, Globals::screenHeight/2);
 	button1->SetSize(50, 50);
 	button1->SetOnClick([this]() {
-		
+		//obj1->Damage(2);
+		GameStateMachine::GetInstance()->PerformStateChange();
 		});
 	m_listButton.push_back(button1);
+	
+	// button shop
+	std::shared_ptr<GameButton>  button2 = std::make_shared<GameButton>(model_b, shader_b, texture_b);
+	button2->Set2DPosition(Globals::screenWidth - 150, 50);
+	button2->SetSize(50, 50);
+	button2->SetOnClick([this]() {
+		GameStateMachine::GetInstance()->ChangeState(StateType::STATE_SHOP);
+		});
+	m_listButton.push_back(button2);
 }
 
 void GSPlay::Exit()
