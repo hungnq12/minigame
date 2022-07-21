@@ -1,5 +1,4 @@
 #include "GameButton.h"
-#include "Player.h"
 GameButton::GameButton(std::shared_ptr<Model> model, std::shared_ptr<Shader> shader, std::shared_ptr<Texture> texture)
 	: Sprite2D(-1, model, shader, texture), m_pBtClick(nullptr), m_isHolding(false)
 {

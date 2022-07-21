@@ -72,10 +72,7 @@
     <ClCompile Include="src\GameObject\SpriteAnimation.cpp">
       <Filter>TrainingFramework\src\GameObject</Filter>
     </ClCompile>
-    <ClCompile Include="src\GameObject\Player.cpp">
-      <Filter>TrainingFramework\src\GameObject</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameObject\Enemy.cpp">
+    <ClCompile Include="src\GameObject\Unit.cpp">
       <Filter>TrainingFramework\src\GameObject</Filter>
     </ClCompile>
     <ClCompile Include="src\GameStates\GSShop.cpp">
@@ -143,10 +140,7 @@
     <ClInclude Include="src\GameObject\SpriteAnimation.h">
       <Filter>TrainingFramework\src\GameObject</Filter>
     </ClInclude>
-    <ClInclude Include="src\GameObject\Player.h">
-      <Filter>TrainingFramework\src\GameObject</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GameObject\Enemy.h">
+    <ClInclude Include="src\GameObject\Unit.h">
       <Filter>TrainingFramework\src\GameObject</Filter>
     </ClInclude>
     <ClInclude Include="src\GameStates\GSShop.h">

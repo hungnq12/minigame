@@ -1,5 +1,6 @@
 #pragma once
 #include "GameStateBase.h"
+#include "Unit.h"
 
 class Sprite2D;
 class Sprite3D;
@@ -27,6 +28,22 @@ public:
 	void	Update(float deltaTime) override;
 	void	Draw() override;
 	int m_KeyPress;
+
+	std::shared_ptr<Unit> playerUnit;
+	std::shared_ptr<Unit> enemyUnit;
+
+	enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST };
+	BattleState state;
+
+	void SetupBattle();
+	void PlayerTurn();
+	void PlayerAttack();
+	void EnemyTurn();
+	void EndBattle();
+
+	void PlayerHUD();
+	void EnemyHUD();
+	void Dialogue(std::string string);
 
 private:
 	std::shared_ptr<Sprite2D>	m_background;

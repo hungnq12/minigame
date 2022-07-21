@@ -10,9 +10,7 @@
 #include "Text.h"
 #include "GameButton.h"
 #include "SpriteAnimation.h"
-#include "Player.h"
-
-
+#include "Unit.h"
 
 GSPlay::GSPlay()
 {
@@ -22,20 +20,14 @@ GSPlay::GSPlay()
 GSPlay::~GSPlay()
 {
 }
-//auto model_c = ResourceManagers::GetInstance()->GetModel("Sprite2D.nfg");
-//auto shader_c = ResourceManagers::GetInstance()->GetShader("Animation");
-//auto texture_c = ResourceManagers::GetInstance()->GetTexture("char_red_1.tga");
-//auto model_bg = ResourceManagers::GetInstance()->GetModel("Sprite2D.nfg");
-//auto shader_bg = ResourceManagers::GetInstance()->GetShader("TextureShader");
-//auto texture_bg = ResourceManagers::GetInstance()->GetTexture("Previewx3.tga");
-//auto model_b = ResourceManagers::GetInstance()->GetModel("Sprite2D.nfg");
-//auto shader_b = ResourceManagers::GetInstance()->GetShader("TextureShader");
-//auto texture_b = ResourceManagers::GetInstance()->GetTexture("Previewx3.tga");
-//auto shader_t = ResourceManagers::GetInstance()->GetShader("TextShader");
-//auto font = ResourceManagers::GetInstance()->GetFont("Brightly Crush Shine.otf");
-std::shared_ptr<Player> obj1 = std::make_shared<Player>();
 
 void GSPlay::Init()
+{
+	state = START;
+	SetupBattle();
+}
+
+void GSPlay::SetupBattle()
 {
 	// background
 	auto model_bg = ResourceManagers::GetInstance()->GetModel("Sprite2D.nfg");
@@ -57,73 +49,145 @@ void GSPlay::Init()
 		});
 	m_listButton.push_back(button);
 
-	// score
-	/*shader = ResourceManagers::GetInstance()->GetShader("TextShader");
-	std::shared_ptr<Font> font = ResourceManagers::GetInstance()->GetFont("Brightly Crush Shine.otf");
-	m_score = std::make_shared<Text>(shader, font, "score: 10", TextColor::RED, 1.0);
-	m_score->Set2DPosition(Vector2(5, 25));*/
+	// dialogue
+	Dialogue("He is coming");
 
 	// player
 	auto model_c = ResourceManagers::GetInstance()->GetModel("Sprite2D.nfg");
 	auto shader_c = ResourceManagers::GetInstance()->GetShader("Animation");
 	auto texture_c = ResourceManagers::GetInstance()->GetTexture("char_red_1.tga");
-	std::shared_ptr<Player> obj1 = std::make_shared<Player>(model_c, shader_c, texture_c, 8, 11, 1, 0.2f);
-	obj1->Set2DPosition(150, 350);
-	obj1->SetSize(160, 200);
-	obj1->SetAtk(10);
-	obj1->SetHp(100);
-	obj1->SetDef(5);
+	playerUnit = std::make_shared<Unit>(model_c, shader_c, texture_c, 8, 11, 1, 0.2f);
+	playerUnit->Set2DPosition(150, 350);
+	playerUnit->SetSize(160, 200);
+	playerUnit->SetStat(5, 20, 20);
 
-	std::string t_atk = std::to_string(obj1->GetAtk());
-	std::string t_hp = std::to_string(obj1->GetHp());
-	std::string t_def = std::to_string(obj1->GetDef());
+	PlayerHUD();
 
-	auto shader_t = ResourceManagers::GetInstance()->GetShader("TextShader");
-	auto font = ResourceManagers::GetInstance()->GetFont("Brightly Crush Shine.otf");
-	m_stat = std::make_shared<Text>(shader_t, font, " atk: " + t_atk + " hp: " + t_hp + " def: " + t_def, TextColor::RED, 1.0);
-	m_stat->Set2DPosition(Vector2(5, 25));
-
-	m_listAnimation.push_back(obj1);
+	m_listAnimation.push_back(playerUnit);
 	m_KeyPress = 0;
 
-	// player
-	std::shared_ptr<Player> obj2 = std::make_shared<Player>(model_c, shader_c, texture_c, 8, 11, 1, 0.2f);
-	obj2->Set2DPosition(650, 350);
-	obj2->SetSize(160, 200);
-	obj2->SetAtk(5);
-	obj2->SetHp(20);
-	obj2->SetDef(5);
+	// enemy
+	enemyUnit = std::make_shared<Unit>(model_c, shader_c, texture_c, 8, 11, 1, 0.2f);
+	enemyUnit->Set2DPosition(650, 350);
+	enemyUnit->SetSize(160, 200);
+	enemyUnit->SetStat(5, 20, 20);
 
-	std::string t_atk1 = std::to_string(obj2->GetAtk());
-	std::string t_hp1 = std::to_string(obj2->GetHp());
-	std::string t_def1 = std::to_string(obj2->GetDef());
+	EnemyHUD();
 
-	m_stat1 = std::make_shared<Text>(shader_t, font, " atk: " + t_atk1 + " hp: " + t_hp1 + " def: " + t_def1, TextColor::RED, 1.0);
-	m_stat1->Set2DPosition(Vector2(500, 25));
-
-	m_listAnimation.push_back(obj2);
+	m_listAnimation.push_back(enemyUnit);
 	m_KeyPress = 0;
+
+	//Sleep(500);
+
+	state = PLAYERTURN;
+	PlayerTurn();
 
 	// button atk
 	std::shared_ptr<GameButton>  button1 = std::make_shared<GameButton>(model_b, shader_b, texture_b);
 	button1->Set2DPosition(Globals::screenWidth/2, Globals::screenHeight/2);
 	button1->SetSize(50, 50);
 	button1->SetOnClick([this]() {
-		//obj1->Damage(2);
-		GameStateMachine::GetInstance()->PerformStateChange();
+		if (state != PLAYERTURN)
+			return;
+
+		PlayerAttack();
 		});
 	m_listButton.push_back(button1);
-	
-	// button shop
-	std::shared_ptr<GameButton>  button2 = std::make_shared<GameButton>(model_b, shader_b, texture_b);
-	button2->Set2DPosition(Globals::screenWidth - 150, 50);
-	button2->SetSize(50, 50);
-	button2->SetOnClick([this]() {
-		GameStateMachine::GetInstance()->ChangeState(StateType::STATE_SHOP);
-		});
-	m_listButton.push_back(button2);
+}
+void GSPlay::PlayerAttack()
+{
+	bool isDead = enemyUnit->TakeDamage(playerUnit->atk);
+
+	EnemyHUD();
+
+	std::string number = std::to_string(playerUnit->atk);
+	Dialogue("Player deal " + number + " damage");
+
+	//Sleep(500);
+
+	if (isDead)
+	{
+		state = WON;
+		EndBattle();
+	}
+	else
+	{
+		state = ENEMYTURN;
+		GSPlay::EnemyTurn();
+	}
 }
 
+void GSPlay::EnemyTurn()
+{
+	Dialogue("He is attacking");
+
+	//Sleep(200);
+
+	bool isDead = playerUnit->TakeDamage(enemyUnit->atk);
+
+	PlayerHUD();
+
+	//Sleep(200);
+
+	if (isDead)
+	{
+		state = LOST;
+		EndBattle();
+	}
+	else
+	{
+		state = PLAYERTURN;
+		GSPlay::PlayerTurn();
+	}
+
+}
+
+void GSPlay::EndBattle()
+{
+	if (state == WON)
+	{
+		Dialogue("Win");
+	}
+	else if (state == LOST)
+	{
+		Dialogue("Lose");
+	}
+}
+void GSPlay::PlayerTurn()
+{
+	Dialogue("Choose action");
+}
+void GSPlay::PlayerHUD()
+{
+	std::string t_atk = std::to_string(playerUnit->atk);
+	std::string t_maxhp = std::to_string(playerUnit->maxHP);
+	std::string t_curhp = std::to_string(playerUnit->currentHP);
+
+	auto shader_t = ResourceManagers::GetInstance()->GetShader("TextShader");
+	auto font = ResourceManagers::GetInstance()->GetFont("Brightly Crush Shine.otf");
+	m_stat = std::make_shared<Text>(shader_t, font, " atk: " + t_atk + " hp: " + t_curhp + "/" + t_maxhp, TextColor::RED, 1.0);
+	m_stat->Set2DPosition(Vector2(5, 25));
+}
+void GSPlay::EnemyHUD()
+{
+	std::string t_atk1 = std::to_string(enemyUnit->atk);
+	std::string t_maxhp1 = std::to_string(enemyUnit->maxHP);
+	std::string t_curhp1 = std::to_string(enemyUnit->currentHP);
+
+	auto shader_t = ResourceManagers::GetInstance()->GetShader("TextShader");
+	auto font = ResourceManagers::GetInstance()->GetFont("Brightly Crush Shine.otf");
+	m_stat1 = std::make_shared<Text>(shader_t, font, " atk: " + t_atk1 + " hp: " + t_curhp1 + "/" + t_maxhp1, TextColor::RED, 1.0);
+	m_stat1->Set2DPosition(Vector2(500, 25));
+}
+void GSPlay::Dialogue(std::string string)
+{
+	auto shader1 = ResourceManagers::GetInstance()->GetShader("TextShader");
+	auto font1 = ResourceManagers::GetInstance()->GetFont("ARCADECLASSIC.ttf");
+	m_score = std::make_shared< Text>(shader1, font1, string, Vector4(1.0f, 0.5f, 0.0f, 1.0f), 3.0f);
+	m_score->Set2DPosition(Vector2(60, 200));
+
+	Sleep(500);
+}
 void GSPlay::Exit()
 {
 }
@@ -228,6 +292,7 @@ void GSPlay::Update(float deltaTime)
 void GSPlay::Draw()
 {
 	m_background->Draw();
+	m_score->Draw();
 	m_stat->Draw();
 	m_stat1->Draw();
 	for (auto it : m_listButton)

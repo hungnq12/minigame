@@ -1,28 +1,27 @@
 ﻿  GSPlay.cpp
-C:\Users\han.glschool\MiniGame_HungNQ\minigame\TrainingFramework\src\GameStates\GSPlay.cpp(53,45): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-C:\Users\han.glschool\MiniGame_HungNQ\minigame\TrainingFramework\src\GameStates\GSPlay.cpp(109,70): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-C:\Users\han.glschool\MiniGame_HungNQ\minigame\TrainingFramework\src\GameStates\GSPlay.cpp(109,45): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-C:\Users\han.glschool\MiniGame_HungNQ\minigame\TrainingFramework\src\GameStates\GSPlay.cpp(119,46): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-C:\Users\han.glschool\MiniGame_HungNQ\minigame\TrainingFramework\src\GameStates\GSPlay.cpp(217,2): warning C4065: switch statement contains 'default' but no 'case' labels
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\xutility(158,77): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+D:\InternGL\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(45,45): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+D:\InternGL\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(87,70): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+D:\InternGL\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(87,45): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+D:\InternGL\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(281,2): warning C4065: switch statement contains 'default' but no 'case' labels
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.29.30133\include\xutility(149,77): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
           with
           [
               _Ty=double
           ]
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(2029): message : see reference to function template instantiation 'void std::_Construct_in_place<_Ty,std::shared_ptr<Shader>&,std::shared_ptr<Font>&,std::basic_string<char,std::char_traits<char>,std::allocator<char>>,TextColor,double>(_Ty &,std::shared_ptr<Shader> &,std::shared_ptr<Font> &,std::basic_string<char,std::char_traits<char>,std::allocator<char>> &&,TextColor &&,double &&) noexcept(false)' being compiled
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.29.30133\include\memory(2014): message : see reference to function template instantiation 'void std::_Construct_in_place<_Ty,std::shared_ptr<Shader>&,std::shared_ptr<Font>&,std::basic_string<char,std::char_traits<char>,std::allocator<char>>,TextColor,double>(_Ty &,std::shared_ptr<Shader> &,std::shared_ptr<Font> &,std::basic_string<char,std::char_traits<char>,std::allocator<char>> &&,TextColor &&,double &&) noexcept(false)' being compiled
           with
           [
               _Ty=Text
           ]
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(2748): message : see reference to function template instantiation 'std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<std::shared_ptr<Shader>&,std::shared_ptr<Font>&,std::basic_string<char,std::char_traits<char>,std::allocator<char>>,TextColor,double>(std::shared_ptr<Shader> &,std::shared_ptr<Font> &,std::basic_string<char,std::char_traits<char>,std::allocator<char>> &&,TextColor &&,double &&)' being compiled
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.29.30133\include\memory(2726): message : see reference to function template instantiation 'std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<std::shared_ptr<Shader>&,std::shared_ptr<Font>&,std::basic_string<char,std::char_traits<char>,std::allocator<char>>,TextColor,double>(std::shared_ptr<Shader> &,std::shared_ptr<Font> &,std::basic_string<char,std::char_traits<char>,std::allocator<char>> &&,TextColor &&,double &&)' being compiled
           with
           [
               _Ty=Text
           ]
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(2748): message : see reference to function template instantiation 'std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<std::shared_ptr<Shader>&,std::shared_ptr<Font>&,std::basic_string<char,std::char_traits<char>,std::allocator<char>>,TextColor,double>(std::shared_ptr<Shader> &,std::shared_ptr<Font> &,std::basic_string<char,std::char_traits<char>,std::allocator<char>> &&,TextColor &&,double &&)' being compiled
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.29.30133\include\memory(2726): message : see reference to function template instantiation 'std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<std::shared_ptr<Shader>&,std::shared_ptr<Font>&,std::basic_string<char,std::char_traits<char>,std::allocator<char>>,TextColor,double>(std::shared_ptr<Shader> &,std::shared_ptr<Font> &,std::basic_string<char,std::char_traits<char>,std::allocator<char>> &&,TextColor &&,double &&)' being compiled
           with
           [
               _Ty=Text
           ]
-C:\Users\han.glschool\MiniGame_HungNQ\minigame\TrainingFramework\src\GameStates\GSPlay.cpp(83): message : see reference to function template instantiation 'std::shared_ptr<Text> std::make_shared<Text,std::shared_ptr<Shader>&,std::shared_ptr<Font>&,std::basic_string<char,std::char_traits<char>,std::allocator<char>>,TextColor,double>(std::shared_ptr<Shader> &,std::shared_ptr<Font> &,std::basic_string<char,std::char_traits<char>,std::allocator<char>> &&,TextColor &&,double &&)' being compiled
-  TrainingFramework.vcxproj -> C:\Users\han.glschool\MiniGame_HungNQ\minigame\BIN-Nvidia\TrainingFramework.exe
+D:\InternGL\MiniGameStarter\TrainingFramework\src\GameStates\GSPlay.cpp(168): message : see reference to function template instantiation 'std::shared_ptr<Text> std::make_shared<Text,std::shared_ptr<Shader>&,std::shared_ptr<Font>&,std::basic_string<char,std::char_traits<char>,std::allocator<char>>,TextColor,double>(std::shared_ptr<Shader> &,std::shared_ptr<Font> &,std::basic_string<char,std::char_traits<char>,std::allocator<char>> &&,TextColor &&,double &&)' being compiled
+  TrainingFramework.vcxproj -> D:\InternGL\MiniGameStarter\BIN-Nvidia\TrainingFramework.exe
