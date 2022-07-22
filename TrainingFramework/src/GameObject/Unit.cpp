@@ -13,18 +13,28 @@ Unit::~Unit()
 {
 }
 
-void Unit::SetStat(int atk, int currentHP, int maxHP)
+void Unit::SetPlayerStat(int level)
 {
-	this->atk = atk;
-	this->currentHP = currentHP;
-	this->maxHP = maxHP;
+	this->level = level;
+	this->atk = level * 5;
+	this->currentHP = level * 10;
+	this->maxHP = level * 10;
+}
+
+void Unit::SetEnemyStat(int level)
+{
+	this->level = level;
+	this->atk = level * 2;
+	this->currentHP = level * 7;
+	this->maxHP = level * 7;
 }
 
 bool Unit::TakeDamage(int dmg)
 {
 	currentHP -= dmg;
-
-	if (currentHP <= 0)
+	if (currentHP < 0) 
+		currentHP = 0;
+	if (currentHP == 0)
 		return true;
 	else
 		return false;
@@ -35,4 +45,13 @@ void Unit::Heal(int amount)
 	currentHP += amount;
 	if (currentHP > maxHP)
 		currentHP = maxHP;
+}
+
+void Unit::Reward(int level)
+{
+	this->atk += level;
+	this->currentHP += (level * 2);
+	this->maxHP += (level * 2);
+	this->gold += (level * 10);
+
 }

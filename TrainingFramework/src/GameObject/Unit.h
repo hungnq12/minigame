@@ -8,11 +8,17 @@ public:
 	Unit();
 	~Unit();
 
-	int atk, maxHP, currentHP;
+	int level, atk, maxHP, currentHP;
 
-	void SetStat(int atk, int currentHP, int maxHP);
+	int gold = 0;
+
+	void SetPlayerStat(int level);
+
+	void SetEnemyStat(int level);
 
 	bool TakeDamage(int dmg);
 
 	void Heal(int amount);
+
+	void Reward(int level);
 };

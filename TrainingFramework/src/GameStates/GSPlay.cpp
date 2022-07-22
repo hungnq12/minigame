@@ -23,12 +23,6 @@ GSPlay::~GSPlay()
 
 void GSPlay::Init()
 {
-	state = START;
-	SetupBattle();
-}
-
-void GSPlay::SetupBattle()
-{
 	// background
 	auto model_bg = ResourceManagers::GetInstance()->GetModel("Sprite2D.nfg");
 	auto shader_bg = ResourceManagers::GetInstance()->GetShader("TextureShader");
@@ -50,7 +44,7 @@ void GSPlay::SetupBattle()
 	m_listButton.push_back(button);
 
 	// dialogue
-	Dialogue("He is coming");
+	Dialogue("Monster da den");
 
 	// player
 	auto model_c = ResourceManagers::GetInstance()->GetModel("Sprite2D.nfg");
@@ -59,40 +53,55 @@ void GSPlay::SetupBattle()
 	playerUnit = std::make_shared<Unit>(model_c, shader_c, texture_c, 8, 11, 1, 0.2f);
 	playerUnit->Set2DPosition(150, 350);
 	playerUnit->SetSize(160, 200);
-	playerUnit->SetStat(5, 20, 20);
+	playerUnit->SetPlayerStat(1);
 
 	PlayerHUD();
 
 	m_listAnimation.push_back(playerUnit);
 	m_KeyPress = 0;
 
+	// button atk
+	std::shared_ptr<GameButton>  btn_atk = std::make_shared<GameButton>(model_b, shader_b, texture_b);
+	btn_atk->Set2DPosition(Globals::screenWidth / 2, Globals::screenHeight / 2);
+	btn_atk->SetSize(50, 50);
+	btn_atk->SetOnClick([this]() {
+		if (EnemyTime != 0.0f)
+			return;
+		PlayerAttack();
+		});
+	m_listButton.push_back(btn_atk);
+
+	// button heal
+	std::shared_ptr<GameButton>  btn_heal = std::make_shared<GameButton>(model_b, shader_b, texture_b);
+	btn_heal->Set2DPosition(Globals::screenWidth / 3, Globals::screenHeight / 3);
+	btn_heal->SetSize(50, 50);
+	btn_heal->SetOnClick([this]() {
+		if (EnemyTime != 0.0f)
+			return;
+		PlayerHeal();
+		});
+	m_listButton.push_back(btn_heal);
+
+	SetupBattle();
+}
+
+void GSPlay::SetupBattle()
+{
 	// enemy
+	auto model_c = ResourceManagers::GetInstance()->GetModel("Sprite2D.nfg");
+	auto shader_c = ResourceManagers::GetInstance()->GetShader("Animation");
+	auto texture_c = ResourceManagers::GetInstance()->GetTexture("char_red_1.tga");
 	enemyUnit = std::make_shared<Unit>(model_c, shader_c, texture_c, 8, 11, 1, 0.2f);
 	enemyUnit->Set2DPosition(650, 350);
 	enemyUnit->SetSize(160, 200);
-	enemyUnit->SetStat(5, 20, 20);
+	enemyUnit->SetEnemyStat(level);
 
 	EnemyHUD();
 
 	m_listAnimation.push_back(enemyUnit);
 	m_KeyPress = 0;
 
-	//Sleep(500);
-
-	state = PLAYERTURN;
 	PlayerTurn();
-
-	// button atk
-	std::shared_ptr<GameButton>  button1 = std::make_shared<GameButton>(model_b, shader_b, texture_b);
-	button1->Set2DPosition(Globals::screenWidth/2, Globals::screenHeight/2);
-	button1->SetSize(50, 50);
-	button1->SetOnClick([this]() {
-		if (state != PLAYERTURN)
-			return;
-
-		PlayerAttack();
-		});
-	m_listButton.push_back(button1);
 }
 void GSPlay::PlayerAttack()
 {
@@ -103,52 +112,71 @@ void GSPlay::PlayerAttack()
 	std::string number = std::to_string(playerUnit->atk);
 	Dialogue("Player deal " + number + " damage");
 
-	//Sleep(500);
-
 	if (isDead)
 	{
-		state = WON;
+		state = WIN;
+		StateWinTime += 1.0f;
 		EndBattle();
+		playerUnit->atk++;
+
 	}
 	else
 	{
-		state = ENEMYTURN;
-		GSPlay::EnemyTurn();
+		EnemyTime += 1.5f;
+		/*EnemyTurn();*/
 	}
 }
-
-void GSPlay::EnemyTurn()
+void GSPlay::PlayerHeal()
 {
-	Dialogue("He is attacking");
+	playerUnit->Heal(5);
 
-	//Sleep(200);
+	PlayerHUD();
 
+	std::string number = std::to_string(playerUnit->atk);
+	Dialogue("Player heal 5 hp");
+
+	EnemyTime += 1.5f;
+}
+void GSPlay::EnemyAttack()
+{
 	bool isDead = playerUnit->TakeDamage(enemyUnit->atk);
 
 	PlayerHUD();
 
-	//Sleep(200);
+	std::string number = std::to_string(enemyUnit->atk);
+	Dialogue("Enemy deal " + number + " damage");
 
 	if (isDead)
 	{
-		state = LOST;
+		state = LOSE;
+		StateLoseTime += 1.0f;
 		EndBattle();
 	}
 	else
 	{
-		state = PLAYERTURN;
-		GSPlay::PlayerTurn();
+		PlayerTime += 1.5f;
+		/*PlayerTurn();*/
 	}
 
 }
+void GSPlay::EnemyHeal()
+{
+	enemyUnit->Heal(1);
 
+	EnemyHUD();
+
+	std::string number = std::to_string(playerUnit->atk);
+	Dialogue("Enemy heal 1 hp");
+
+	PlayerTime += 1.5f;
+}
 void GSPlay::EndBattle()
 {
-	if (state == WON)
+	if (state == WIN)
 	{
 		Dialogue("Win");
 	}
-	else if (state == LOST)
+	else if (state == LOSE)
 	{
 		Dialogue("Lose");
 	}
@@ -162,10 +190,11 @@ void GSPlay::PlayerHUD()
 	std::string t_atk = std::to_string(playerUnit->atk);
 	std::string t_maxhp = std::to_string(playerUnit->maxHP);
 	std::string t_curhp = std::to_string(playerUnit->currentHP);
+	std::string t_gold = std::to_string(playerUnit->gold);
 
 	auto shader_t = ResourceManagers::GetInstance()->GetShader("TextShader");
 	auto font = ResourceManagers::GetInstance()->GetFont("Brightly Crush Shine.otf");
-	m_stat = std::make_shared<Text>(shader_t, font, " atk: " + t_atk + " hp: " + t_curhp + "/" + t_maxhp, TextColor::RED, 1.0);
+	m_stat = std::make_shared<Text>(shader_t, font, " atk: " + t_atk + " hp: " + t_curhp + "/" + t_maxhp + " gold:" + t_gold, TextColor::RED, 1.0);
 	m_stat->Set2DPosition(Vector2(5, 25));
 }
 void GSPlay::EnemyHUD()
@@ -185,8 +214,6 @@ void GSPlay::Dialogue(std::string string)
 	auto font1 = ResourceManagers::GetInstance()->GetFont("ARCADECLASSIC.ttf");
 	m_score = std::make_shared< Text>(shader1, font1, string, Vector4(1.0f, 0.5f, 0.0f, 1.0f), 3.0f);
 	m_score->Set2DPosition(Vector2(60, 200));
-
-	Sleep(500);
 }
 void GSPlay::Exit()
 {
@@ -286,6 +313,52 @@ void GSPlay::Update(float deltaTime)
 	for (auto it : m_listAnimation)
 	{
 		it->Update(deltaTime);
+	}
+	if (EnemyTime > 0.0f)
+	{
+		EnemyTime -= deltaTime;
+		if (EnemyTime < 0.0f)
+		{
+			EnemyTime = 0.0f;
+			if (enemyUnit->currentHP < (enemyUnit->maxHP/3))
+			{
+				EnemyHeal();
+			}
+			else
+			{
+				EnemyAttack();
+			}
+		}
+	}
+	if (PlayerTime > 0.0f)
+	{
+		PlayerTime -= deltaTime;
+		if (PlayerTime < 0.0f)
+		{
+			PlayerTime = 0.0f;
+			PlayerTurn();
+		}
+	}
+	if (StateLoseTime > 0.0f)
+	{
+		StateLoseTime -= deltaTime;
+		if (StateLoseTime < 0.0f)
+		{
+			StateLoseTime = 0.0f;
+			GameStateMachine::GetInstance()->ChangeState(StateType::STATE_MENU);
+		}
+	}
+	if (StateWinTime > 0.0f)
+	{
+		StateWinTime -= deltaTime;
+		if (StateWinTime < 0.0f)
+		{
+			StateWinTime = 0.0f;
+			playerUnit->Reward(level);
+			PlayerHUD();
+			level++;
+			SetupBattle();
+		}
 	}
 }
 

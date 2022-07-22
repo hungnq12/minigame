@@ -32,18 +32,28 @@ public:
 	std::shared_ptr<Unit> playerUnit;
 	std::shared_ptr<Unit> enemyUnit;
 
-	enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST };
+	enum BattleState { WIN, LOSE };
 	BattleState state;
 
 	void SetupBattle();
 	void PlayerTurn();
 	void PlayerAttack();
-	void EnemyTurn();
+	void PlayerHeal();
+	void EnemyAttack();
+	void EnemyHeal();
 	void EndBattle();
 
 	void PlayerHUD();
 	void EnemyHUD();
 	void Dialogue(std::string string);
+
+	float PlayerTime = 0.0f;
+	float EnemyTime = 0.0f;
+
+	float StateWinTime = 0.0f;
+	float StateLoseTime = 0.0f;
+
+	int level = 1;
 
 private:
 	std::shared_ptr<Sprite2D>	m_background;
