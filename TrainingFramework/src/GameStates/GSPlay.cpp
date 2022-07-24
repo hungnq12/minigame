@@ -1,4 +1,4 @@
-#include "GSPlay.h"
+﻿#include "GSPlay.h"
 
 #include "Shader.h"
 #include "Texture.h"
@@ -44,6 +44,10 @@ void GSPlay::Init()
 	m_listButton.push_back(button);
 
 	// dialogue
+	auto texture_pn = ResourceManagers::GetInstance()->GetTexture("panel.tga");
+	m_panel = std::make_shared<Sprite2D>(model_bg, shader_bg, texture_pn);
+	m_panel->Set2DPosition(Globals::screenWidth/2, Globals::screenHeight-50);
+	m_panel->SetSize(850, 150);
 	Dialogue("Monster da den");
 
 	// player
@@ -212,8 +216,8 @@ void GSPlay::Dialogue(std::string string)
 {
 	auto shader1 = ResourceManagers::GetInstance()->GetShader("TextShader");
 	auto font1 = ResourceManagers::GetInstance()->GetFont("ARCADECLASSIC.ttf");
-	m_score = std::make_shared< Text>(shader1, font1, string, Vector4(1.0f, 0.5f, 0.0f, 1.0f), 3.0f);
-	m_score->Set2DPosition(Vector2(60, 200));
+	m_score = std::make_shared< Text>(shader1, font1, string, Vector4(1.0f, 0.5f, 0.0f, 1.0f), 1.5f);
+	m_score->Set2DPosition(100, 575);
 }
 void GSPlay::Exit()
 {
@@ -365,6 +369,7 @@ void GSPlay::Update(float deltaTime)
 void GSPlay::Draw()
 {
 	m_background->Draw();
+	m_panel->Draw();
 	m_score->Draw();
 	m_stat->Draw();
 	m_stat1->Draw();

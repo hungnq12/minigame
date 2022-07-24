@@ -1,58 +1,12 @@
-﻿  Application.cpp
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.29.30133\include\xutility(149,77): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.29.30133\include\memory(2014): message : see reference to function template instantiation 'void std::_Construct_in_place<_Ty,int,int,int&,int,int&,float,float,float>(_Ty &,int &&,int &&,int &,int &&,int &,float &&,float &&,float &&) noexcept(false)' being compiled
-          with
-          [
-              _Ty=Camera
-          ]
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.29.30133\include\memory(2726): message : see reference to function template instantiation 'std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<int,int,int&,int,int&,float,float,float>(int &&,int &&,int &,int &&,int &,float &&,float &&,float &&)' being compiled
-          with
-          [
-              _Ty=Camera
-          ]
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.29.30133\include\memory(2726): message : see reference to function template instantiation 'std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<int,int,int&,int,int&,float,float,float>(int &&,int &&,int &,int &&,int &,float &&,float &&,float &&)' being compiled
-          with
-          [
-              _Ty=Camera
-          ]
-D:\InternGL\MiniGameStarter\minigame\TrainingFramework\src\Application.cpp(20): message : see reference to function template instantiation 'std::shared_ptr<Camera> std::make_shared<Camera,int,int,int&,int,int&,float,float,float>(int &&,int &&,int &,int &&,int &,float &&,float &&,float &&)' being compiled
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.29.30133\include\xutility(149,77): warning C4244: 'argument': conversion from '_Ty' to 'GLfloat', possible loss of data
-          with
-          [
-              _Ty=int
-          ]
-  ResourceManagers.cpp
-  Font.cpp
-D:\InternGL\MiniGameStarter\minigame\TrainingFramework\src\GameObject\Font.cpp(44,21): warning C4018: '<': signed/unsigned mismatch
-  GameButton.cpp
-  Unit.cpp
-  Sprite2D.cpp
-  Camera.cpp
-  Sprite3D.cpp
-  Model.cpp
-D:\InternGL\MiniGameStarter\minigame\TrainingFramework\src\GameObject\Model.cpp(25,18): warning C4244: 'initializing': conversion from 'std::streamoff' to 'size_t', possible loss of data
-  Shader.cpp
-  SpriteAnimation.cpp
-D:\InternGL\MiniGameStarter\minigame\TrainingFramework\src\GameObject\SpriteAnimation.cpp(88,39): warning C4244: 'argument': conversion from 'GLint' to 'GLfloat', possible loss of data
-D:\InternGL\MiniGameStarter\minigame\TrainingFramework\src\GameObject\SpriteAnimation.cpp(93,39): warning C4244: 'argument': conversion from 'GLint' to 'GLfloat', possible loss of data
-D:\InternGL\MiniGameStarter\minigame\TrainingFramework\src\GameObject\SpriteAnimation.cpp(98,39): warning C4244: 'argument': conversion from 'GLint' to 'GLfloat', possible loss of data
-D:\InternGL\MiniGameStarter\minigame\TrainingFramework\src\GameObject\SpriteAnimation.cpp(103,39): warning C4244: 'argument': conversion from 'GLint' to 'GLfloat', possible loss of data
-  Text.cpp
-  Texture.cpp
-  GameStateBase.cpp
-  GameStateMachine.cpp
-  GSIntro.cpp
-  GSMenu.cpp
-D:\InternGL\MiniGameStarter\minigame\TrainingFramework\src\GameStates\GSMenu.cpp(30,72): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-D:\InternGL\MiniGameStarter\minigame\TrainingFramework\src\GameStates\GSMenu.cpp(30,45): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-D:\InternGL\MiniGameStarter\minigame\TrainingFramework\src\GameStates\GSMenu.cpp(40,45): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-  GSPlay.cpp
+﻿  GSPlay.cpp
 D:\InternGL\MiniGameStarter\minigame\TrainingFramework\src\GameStates\GSPlay.cpp(39,45): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-D:\InternGL\MiniGameStarter\minigame\TrainingFramework\src\GameStates\GSPlay.cpp(65,73): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-D:\InternGL\MiniGameStarter\minigame\TrainingFramework\src\GameStates\GSPlay.cpp(65,46): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-D:\InternGL\MiniGameStarter\minigame\TrainingFramework\src\GameStates\GSPlay.cpp(76,74): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-D:\InternGL\MiniGameStarter\minigame\TrainingFramework\src\GameStates\GSPlay.cpp(76,47): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-D:\InternGL\MiniGameStarter\minigame\TrainingFramework\src\GameStates\GSPlay.cpp(308,2): warning C4065: switch statement contains 'default' but no 'case' labels
+D:\InternGL\MiniGameStarter\minigame\TrainingFramework\src\GameStates\GSPlay.cpp(49,70): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+D:\InternGL\MiniGameStarter\minigame\TrainingFramework\src\GameStates\GSPlay.cpp(49,45): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+D:\InternGL\MiniGameStarter\minigame\TrainingFramework\src\GameStates\GSPlay.cpp(69,73): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+D:\InternGL\MiniGameStarter\minigame\TrainingFramework\src\GameStates\GSPlay.cpp(69,46): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+D:\InternGL\MiniGameStarter\minigame\TrainingFramework\src\GameStates\GSPlay.cpp(80,74): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+D:\InternGL\MiniGameStarter\minigame\TrainingFramework\src\GameStates\GSPlay.cpp(80,47): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+D:\InternGL\MiniGameStarter\minigame\TrainingFramework\src\GameStates\GSPlay.cpp(312,2): warning C4065: switch statement contains 'default' but no 'case' labels
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.29.30133\include\xutility(149,77): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
           with
           [
@@ -73,31 +27,5 @@ C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.29.3013
           [
               _Ty=Text
           ]
-D:\InternGL\MiniGameStarter\minigame\TrainingFramework\src\GameStates\GSPlay.cpp(197): message : see reference to function template instantiation 'std::shared_ptr<Text> std::make_shared<Text,std::shared_ptr<Shader>&,std::shared_ptr<Font>&,std::basic_string<char,std::char_traits<char>,std::allocator<char>>,TextColor,double>(std::shared_ptr<Shader> &,std::shared_ptr<Font> &,std::basic_string<char,std::char_traits<char>,std::allocator<char>> &&,TextColor &&,double &&)' being compiled
-  GSShop.cpp
-D:\InternGL\MiniGameStarter\minigame\TrainingFramework\src\GameStates\GSShop.cpp(21,78): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-D:\InternGL\MiniGameStarter\minigame\TrainingFramework\src\GameStates\GSShop.cpp(21,51): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-D:\InternGL\MiniGameStarter\minigame\TrainingFramework\src\GameStates\GSShop.cpp(27,72): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-D:\InternGL\MiniGameStarter\minigame\TrainingFramework\src\GameStates\GSShop.cpp(27,45): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-D:\InternGL\MiniGameStarter\minigame\TrainingFramework\src\GameStates\GSShop.cpp(36,45): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-  TrainingFramework.cpp
-  Generating Code...
-Application.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
-LINK : warning LNK4098: defaultlib 'LIBCMTD' conflicts with use of other libs; use /NODEFAULTLIB:library
-soloud_static_d.lib(dr_impl.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static_d.lib(dr_impl.obj)' or at 'D:\InternGL\MiniGameStarter\minigame\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
-soloud_static_d.lib(soloud_wav.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static_d.lib(soloud_wav.obj)' or at 'D:\InternGL\MiniGameStarter\minigame\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
-soloud_static_d.lib(stb_vorbis.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static_d.lib(stb_vorbis.obj)' or at 'D:\InternGL\MiniGameStarter\minigame\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
-soloud_static_d.lib(soloud.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static_d.lib(soloud.obj)' or at 'D:\InternGL\MiniGameStarter\minigame\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
-soloud_static_d.lib(soloud_audiosource.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static_d.lib(soloud_audiosource.obj)' or at 'D:\InternGL\MiniGameStarter\minigame\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
-soloud_static_d.lib(soloud_core_basicops.obj) : warning LNK4099: PDB '' was not found with 'soloud_static_d.lib(soloud_core_basicops.obj)' or at ''; linking object as if no debug info
-soloud_static_d.lib(soloud_core_getters.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static_d.lib(soloud_core_getters.obj)' or at 'D:\InternGL\MiniGameStarter\minigame\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
-soloud_static_d.lib(soloud_core_setters.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static_d.lib(soloud_core_setters.obj)' or at 'D:\InternGL\MiniGameStarter\minigame\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
-soloud_static_d.lib(soloud_core_voicegroup.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static_d.lib(soloud_core_voicegroup.obj)' or at 'D:\InternGL\MiniGameStarter\minigame\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
-soloud_static_d.lib(soloud_core_voiceops.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static_d.lib(soloud_core_voiceops.obj)' or at 'D:\InternGL\MiniGameStarter\minigame\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
-soloud_static_d.lib(soloud_fader.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static_d.lib(soloud_fader.obj)' or at 'D:\InternGL\MiniGameStarter\minigame\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
-soloud_static_d.lib(soloud_fft.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static_d.lib(soloud_fft.obj)' or at 'D:\InternGL\MiniGameStarter\minigame\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
-soloud_static_d.lib(soloud_file.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static_d.lib(soloud_file.obj)' or at 'D:\InternGL\MiniGameStarter\minigame\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
-soloud_static_d.lib(soloud_thread.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static_d.lib(soloud_thread.obj)' or at 'D:\InternGL\MiniGameStarter\minigame\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
-soloud_static_d.lib(soloud_winmm.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static_d.lib(soloud_winmm.obj)' or at 'D:\InternGL\MiniGameStarter\minigame\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
-soloud_static_d.lib(soloud_null.obj) : warning LNK4099: PDB 'soloud_static.pdb' was not found with 'soloud_static_d.lib(soloud_null.obj)' or at 'D:\InternGL\MiniGameStarter\minigame\BIN-Nvidia\soloud_static.pdb'; linking object as if no debug info
+D:\InternGL\MiniGameStarter\minigame\TrainingFramework\src\GameStates\GSPlay.cpp(201): message : see reference to function template instantiation 'std::shared_ptr<Text> std::make_shared<Text,std::shared_ptr<Shader>&,std::shared_ptr<Font>&,std::basic_string<char,std::char_traits<char>,std::allocator<char>>,TextColor,double>(std::shared_ptr<Shader> &,std::shared_ptr<Font> &,std::basic_string<char,std::char_traits<char>,std::allocator<char>> &&,TextColor &&,double &&)' being compiled
   TrainingFramework.vcxproj -> D:\InternGL\MiniGameStarter\minigame\BIN-Nvidia\TrainingFramework.exe

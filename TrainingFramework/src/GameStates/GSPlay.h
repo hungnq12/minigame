@@ -57,6 +57,7 @@ public:
 
 private:
 	std::shared_ptr<Sprite2D>	m_background;
+	std::shared_ptr<Sprite2D>	m_panel;
 	std::shared_ptr<Text>		m_score;
 	std::shared_ptr<Text>		m_stat;
 	std::shared_ptr<Text>		m_stat1;
