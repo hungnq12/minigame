@@ -25,14 +25,23 @@ void GSMenu::Init()
 	// play button
 	auto model_b = ResourceManagers::GetInstance()->GetModel("Sprite2D.nfg");
 	auto shader_b = ResourceManagers::GetInstance()->GetShader("TextureShader");
-	auto texture_b = ResourceManagers::GetInstance()->GetTexture("btn_play.tga");
+	auto texture_b = ResourceManagers::GetInstance()->GetTexture("btn_start.tga");
 	std::shared_ptr<GameButton> button = std::make_shared<GameButton>(model_b, shader_b, texture_b);
 	button->Set2DPosition(Globals::screenWidth / 2, Globals::screenHeight / 2);
-	button->SetSize(200, 200);
+	button->SetSize(200, 75);
 	button->SetOnClick([]() {
 			GameStateMachine::GetInstance()->ChangeState(StateType::STATE_PLAY);
 		});
 	m_listButton.push_back(button);
+
+	auto texture_b2 = ResourceManagers::GetInstance()->GetTexture("btn_option.tga");
+	std::shared_ptr<GameButton> button2 = std::make_shared<GameButton>(model_b, shader_b, texture_b2);
+	button2->Set2DPosition(Globals::screenWidth / 2, Globals::screenHeight / 2 + 100);
+	button2->SetSize(200, 75);
+	button2->SetOnClick([]() {
+		GameStateMachine::GetInstance()->ChangeState(StateType::STATE_PLAY);
+		});
+	m_listButton.push_back(button2);
 
 	// exit button
 	texture_b = ResourceManagers::GetInstance()->GetTexture("btn_close.tga");

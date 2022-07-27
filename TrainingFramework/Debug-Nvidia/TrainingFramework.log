@@ -1,12 +1,10 @@
 ﻿  GSPlay.cpp
 D:\InternGL\MiniGameStarter\minigame\TrainingFramework\src\GameStates\GSPlay.cpp(39,45): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-D:\InternGL\MiniGameStarter\minigame\TrainingFramework\src\GameStates\GSPlay.cpp(49,70): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-D:\InternGL\MiniGameStarter\minigame\TrainingFramework\src\GameStates\GSPlay.cpp(49,45): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-D:\InternGL\MiniGameStarter\minigame\TrainingFramework\src\GameStates\GSPlay.cpp(69,73): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-D:\InternGL\MiniGameStarter\minigame\TrainingFramework\src\GameStates\GSPlay.cpp(69,46): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-D:\InternGL\MiniGameStarter\minigame\TrainingFramework\src\GameStates\GSPlay.cpp(80,74): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-D:\InternGL\MiniGameStarter\minigame\TrainingFramework\src\GameStates\GSPlay.cpp(80,47): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-D:\InternGL\MiniGameStarter\minigame\TrainingFramework\src\GameStates\GSPlay.cpp(312,2): warning C4065: switch statement contains 'default' but no 'case' labels
+D:\InternGL\MiniGameStarter\minigame\TrainingFramework\src\GameStates\GSPlay.cpp(49,47): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+D:\InternGL\MiniGameStarter\minigame\TrainingFramework\src\GameStates\GSPlay.cpp(60,70): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+D:\InternGL\MiniGameStarter\minigame\TrainingFramework\src\GameStates\GSPlay.cpp(60,45): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+D:\InternGL\MiniGameStarter\minigame\TrainingFramework\src\GameStates\GSPlay.cpp(236,15): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+D:\InternGL\MiniGameStarter\minigame\TrainingFramework\src\GameStates\GSPlay.cpp(340,2): warning C4065: switch statement contains 'default' but no 'case' labels
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.29.30133\include\xutility(149,77): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
           with
           [
@@ -27,5 +25,5 @@ C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.29.3013
           [
               _Ty=Text
           ]
-D:\InternGL\MiniGameStarter\minigame\TrainingFramework\src\GameStates\GSPlay.cpp(201): message : see reference to function template instantiation 'std::shared_ptr<Text> std::make_shared<Text,std::shared_ptr<Shader>&,std::shared_ptr<Font>&,std::basic_string<char,std::char_traits<char>,std::allocator<char>>,TextColor,double>(std::shared_ptr<Shader> &,std::shared_ptr<Font> &,std::basic_string<char,std::char_traits<char>,std::allocator<char>> &&,TextColor &&,double &&)' being compiled
+D:\InternGL\MiniGameStarter\minigame\TrainingFramework\src\GameStates\GSPlay.cpp(219): message : see reference to function template instantiation 'std::shared_ptr<Text> std::make_shared<Text,std::shared_ptr<Shader>&,std::shared_ptr<Font>&,std::basic_string<char,std::char_traits<char>,std::allocator<char>>,TextColor,double>(std::shared_ptr<Shader> &,std::shared_ptr<Font> &,std::basic_string<char,std::char_traits<char>,std::allocator<char>> &&,TextColor &&,double &&)' being compiled
   TrainingFramework.vcxproj -> D:\InternGL\MiniGameStarter\minigame\BIN-Nvidia\TrainingFramework.exe

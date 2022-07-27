@@ -43,6 +43,17 @@ void GSPlay::Init()
 		});
 	m_listButton.push_back(button);
 
+
+	// shop
+	std::shared_ptr<GameButton> btn_shop = std::make_shared<GameButton>(model_b, shader_b, texture_b);
+	btn_shop->Set2DPosition(Globals::screenWidth - 50, 100);
+	btn_shop->SetSize(50, 50);
+	btn_shop->SetOnClick([this]() {
+		GameStateMachine::GetInstance()->ChangeState(StateType::STATE_SHOP);
+		});
+	m_listButton.push_back(btn_shop);
+
+
 	// dialogue
 	auto texture_pn = ResourceManagers::GetInstance()->GetTexture("panel.tga");
 	m_panel = std::make_shared<Sprite2D>(model_bg, shader_bg, texture_pn);
@@ -65,9 +76,10 @@ void GSPlay::Init()
 	m_KeyPress = 0;
 
 	// button atk
-	std::shared_ptr<GameButton>  btn_atk = std::make_shared<GameButton>(model_b, shader_b, texture_b);
-	btn_atk->Set2DPosition(Globals::screenWidth / 2, Globals::screenHeight / 2);
-	btn_atk->SetSize(50, 50);
+	auto texture_b_atk = ResourceManagers::GetInstance()->GetTexture("btn_atk.tga");
+	std::shared_ptr<GameButton>  btn_atk = std::make_shared<GameButton>(model_b, shader_b, texture_b_atk);
+	btn_atk->Set2DPosition(550, 550);
+	btn_atk->SetSize(80, 30);
 	btn_atk->SetOnClick([this]() {
 		if (EnemyTime != 0.0f)
 			return;
@@ -76,9 +88,10 @@ void GSPlay::Init()
 	m_listButton.push_back(btn_atk);
 
 	// button heal
-	std::shared_ptr<GameButton>  btn_heal = std::make_shared<GameButton>(model_b, shader_b, texture_b);
-	btn_heal->Set2DPosition(Globals::screenWidth / 3, Globals::screenHeight / 3);
-	btn_heal->SetSize(50, 50);
+	auto texture_b_heal = ResourceManagers::GetInstance()->GetTexture("btn_heal.tga");
+	std::shared_ptr<GameButton>  btn_heal = std::make_shared<GameButton>(model_b, shader_b, texture_b_heal);
+	btn_heal->Set2DPosition(650, 550);
+	btn_heal->SetSize(80, 30);
 	btn_heal->SetOnClick([this]() {
 		if (EnemyTime != 0.0f)
 			return;
@@ -199,7 +212,7 @@ void GSPlay::PlayerHUD()
 	auto shader_t = ResourceManagers::GetInstance()->GetShader("TextShader");
 	auto font = ResourceManagers::GetInstance()->GetFont("Brightly Crush Shine.otf");
 	m_stat = std::make_shared<Text>(shader_t, font, " atk: " + t_atk + " hp: " + t_curhp + "/" + t_maxhp + " gold:" + t_gold, TextColor::RED, 1.0);
-	m_stat->Set2DPosition(Vector2(5, 25));
+	m_stat->Set2DPosition(5,100);
 }
 void GSPlay::EnemyHUD()
 {
@@ -210,14 +223,31 @@ void GSPlay::EnemyHUD()
 	auto shader_t = ResourceManagers::GetInstance()->GetShader("TextShader");
 	auto font = ResourceManagers::GetInstance()->GetFont("Brightly Crush Shine.otf");
 	m_stat1 = std::make_shared<Text>(shader_t, font, " atk: " + t_atk1 + " hp: " + t_curhp1 + "/" + t_maxhp1, TextColor::RED, 1.0);
-	m_stat1->Set2DPosition(Vector2(500, 25));
+	m_stat1->Set2DPosition(500,100);
+
+	std::string grade_str = "";
+	if (enemyUnit->currentHP > 0)
+	{
+		float grade = enemyUnit->maxHP / enemyUnit->currentHP;
+		if (grade >= 5) grade_str = "1";
+		else if (grade >= 2.5) grade_str = "2";
+		else if (grade >= 1.6) grade_str = "3";
+		else if (grade >= 1.25) grade_str = "4";
+		else if (grade >= 1) grade_str = "5";
+	}
+	auto model_hp = ResourceManagers::GetInstance()->GetModel("Sprite2D.nfg");
+	auto shader_hp = ResourceManagers::GetInstance()->GetShader("TextureShader");
+	auto texture_hp = ResourceManagers::GetInstance()->GetTexture("HP"+grade_str+".tga");
+	m_hpbar = std::make_shared<Sprite2D>(model_hp, shader_hp, texture_hp);
+	m_hpbar->Set2DPosition(500, 50);
+	m_hpbar->SetSize(150, 50);
 }
 void GSPlay::Dialogue(std::string string)
 {
 	auto shader1 = ResourceManagers::GetInstance()->GetShader("TextShader");
-	auto font1 = ResourceManagers::GetInstance()->GetFont("ARCADECLASSIC.ttf");
+	auto font1 = ResourceManagers::GetInstance()->GetFont("Fool.ttf");
 	m_score = std::make_shared< Text>(shader1, font1, string, Vector4(1.0f, 0.5f, 0.0f, 1.0f), 1.5f);
-	m_score->Set2DPosition(100, 575);
+	m_score->Set2DPosition(100, 560);
 }
 void GSPlay::Exit()
 {
@@ -286,13 +316,6 @@ void GSPlay::HandleTouchEvents(int x, int y, bool bIsPressed)
 	for (auto button : m_listButton)
 	{
 		if(button->HandleTouchEvents(x, y, bIsPressed))
-		{
-			break;
-		}
-	}
-	for (auto button1 : m_listButton)
-	{
-		if (button1->HandleTouchEvents(x, y, bIsPressed))
 		{
 			break;
 		}
@@ -370,6 +393,8 @@ void GSPlay::Draw()
 {
 	m_background->Draw();
 	m_panel->Draw();
+	if(enemyUnit->currentHP>0)
+		m_hpbar->Draw();
 	m_score->Draw();
 	m_stat->Draw();
 	m_stat1->Draw();

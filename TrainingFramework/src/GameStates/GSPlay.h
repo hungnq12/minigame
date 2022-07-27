@@ -42,6 +42,7 @@ public:
 	void EnemyAttack();
 	void EnemyHeal();
 	void EndBattle();
+	void Shop();
 
 	void PlayerHUD();
 	void EnemyHUD();
@@ -58,6 +59,7 @@ public:
 private:
 	std::shared_ptr<Sprite2D>	m_background;
 	std::shared_ptr<Sprite2D>	m_panel;
+	std::shared_ptr<Sprite2D>	m_hpbar;
 	std::shared_ptr<Text>		m_score;
 	std::shared_ptr<Text>		m_stat;
 	std::shared_ptr<Text>		m_stat1;
