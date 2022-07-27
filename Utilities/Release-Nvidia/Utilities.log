@@ -1,0 +1,6 @@
+﻿  esShader.cpp
+  esUtil.cpp
+  esUtil_win.cpp
+  CMath.cpp
+  TGA.cpp
+  Utilities.vcxproj -> C:\Users\han.glschool\MiniGame_HungNQ\minigame\BIN-Nvidia\Utilities.lib
