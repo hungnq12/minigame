@@ -148,3 +148,9 @@ void SpriteAnimation::SetSize(GLint width, GLint height)
 	m_scale = Vector3((float)m_iWidth, (float)m_iHeight, 1.0f);
 	CalculateWorldMatrix();
 }
+
+void SpriteAnimation::SetCurrentAction(GLint x)
+{
+	m_currentAction = x;
+	CalculateWorldMatrix();
+}

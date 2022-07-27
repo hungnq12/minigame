@@ -99,15 +99,7 @@ void GSPlay::Init()
 		});
 	m_listButton.push_back(btn_heal);
 
-	SetupBattle();
-}
-
-void GSPlay::SetupBattle()
-{
 	// enemy
-	auto model_c = ResourceManagers::GetInstance()->GetModel("Sprite2D.nfg");
-	auto shader_c = ResourceManagers::GetInstance()->GetShader("Animation");
-	auto texture_c = ResourceManagers::GetInstance()->GetTexture("char_red_1.tga");
 	enemyUnit = std::make_shared<Unit>(model_c, shader_c, texture_c, 8, 11, 1, 0.2f);
 	enemyUnit->Set2DPosition(650, 350);
 	enemyUnit->SetSize(160, 200);
@@ -120,8 +112,22 @@ void GSPlay::SetupBattle()
 
 	PlayerTurn();
 }
+void GSPlay::NewEnemy()
+{
+	Dialogue("New enemy");
+
+	enemyUnit->SetEnemyStat(level);
+
+	EnemyHUD();
+
+	PlayerTurn();
+}
 void GSPlay::PlayerAttack()
 {
+	enemyUnit->SetCurrentAction(5);
+
+	playerUnit->SetCurrentAction(2);
+
 	bool isDead = enemyUnit->TakeDamage(playerUnit->atk);
 
 	EnemyHUD();
@@ -131,8 +137,9 @@ void GSPlay::PlayerAttack()
 
 	if (isDead)
 	{
+		enemyUnit->SetCurrentAction(3);
 		state = WIN;
-		StateWinTime += 1.0f;
+		StateWinTime += 2.0f;
 		EndBattle();
 		playerUnit->atk++;
 
@@ -145,7 +152,7 @@ void GSPlay::PlayerAttack()
 }
 void GSPlay::PlayerHeal()
 {
-	playerUnit->Heal(5);
+	playerUnit->Heal(playerUnit->atk);
 
 	PlayerHUD();
 
@@ -154,8 +161,27 @@ void GSPlay::PlayerHeal()
 
 	EnemyTime += 1.5f;
 }
+void GSPlay::PlayerTurn()
+{
+	enemyUnit->SetCurrentAction(1);
+	playerUnit->SetCurrentAction(1);
+
+	Dialogue("Choose action");
+}
+void GSPlay::EnemyTurn()
+{
+	enemyUnit->SetCurrentAction(1);
+	playerUnit->SetCurrentAction(1);
+
+	if (enemyUnit->currentHP < enemyUnit->maxHP / 3) EnemyHeal();
+	else EnemyAttack();
+}
 void GSPlay::EnemyAttack()
 {
+	playerUnit->SetCurrentAction(5);
+
+	enemyUnit->SetCurrentAction(2);
+
 	bool isDead = playerUnit->TakeDamage(enemyUnit->atk);
 
 	PlayerHUD();
@@ -165,6 +191,7 @@ void GSPlay::EnemyAttack()
 
 	if (isDead)
 	{
+		playerUnit->SetCurrentAction(3);
 		state = LOSE;
 		StateLoseTime += 1.0f;
 		EndBattle();
@@ -178,7 +205,7 @@ void GSPlay::EnemyAttack()
 }
 void GSPlay::EnemyHeal()
 {
-	enemyUnit->Heal(1);
+	enemyUnit->Heal(enemyUnit->atk/3);
 
 	EnemyHUD();
 
@@ -198,10 +225,6 @@ void GSPlay::EndBattle()
 		Dialogue("Lose");
 	}
 }
-void GSPlay::PlayerTurn()
-{
-	Dialogue("Choose action");
-}
 void GSPlay::PlayerHUD()
 {
 	std::string t_atk = std::to_string(playerUnit->atk);
@@ -213,6 +236,23 @@ void GSPlay::PlayerHUD()
 	auto font = ResourceManagers::GetInstance()->GetFont("Brightly Crush Shine.otf");
 	m_stat = std::make_shared<Text>(shader_t, font, " atk: " + t_atk + " hp: " + t_curhp + "/" + t_maxhp + " gold:" + t_gold, TextColor::RED, 1.0);
 	m_stat->Set2DPosition(5,100);
+
+	std::string grade_str = "";
+	if (playerUnit->currentHP > 0)
+	{
+		float grade = playerUnit->maxHP / playerUnit->currentHP;
+		if (grade >= 5) grade_str = "1";
+		else if (grade >= 2.5) grade_str = "2";
+		else if (grade >= 1.6) grade_str = "3";
+		else if (grade >= 1.25) grade_str = "4";
+		else if (grade >= 1) grade_str = "5";
+	}
+	auto model_hp = ResourceManagers::GetInstance()->GetModel("Sprite2D.nfg");
+	auto shader_hp = ResourceManagers::GetInstance()->GetShader("TextureShader");
+	auto texture_hp = ResourceManagers::GetInstance()->GetTexture("HP" + grade_str + ".tga");
+	m_hpbar = std::make_shared<Sprite2D>(model_hp, shader_hp, texture_hp);
+	m_hpbar->Set2DPosition(100, 50);
+	m_hpbar->SetSize(150, 50);
 }
 void GSPlay::EnemyHUD()
 {
@@ -238,9 +278,9 @@ void GSPlay::EnemyHUD()
 	auto model_hp = ResourceManagers::GetInstance()->GetModel("Sprite2D.nfg");
 	auto shader_hp = ResourceManagers::GetInstance()->GetShader("TextureShader");
 	auto texture_hp = ResourceManagers::GetInstance()->GetTexture("HP"+grade_str+".tga");
-	m_hpbar = std::make_shared<Sprite2D>(model_hp, shader_hp, texture_hp);
-	m_hpbar->Set2DPosition(500, 50);
-	m_hpbar->SetSize(150, 50);
+	m_hpbar1 = std::make_shared<Sprite2D>(model_hp, shader_hp, texture_hp);
+	m_hpbar1->Set2DPosition(500, 50);
+	m_hpbar1->SetSize(150, 50);
 }
 void GSPlay::Dialogue(std::string string)
 {
@@ -347,14 +387,7 @@ void GSPlay::Update(float deltaTime)
 		if (EnemyTime < 0.0f)
 		{
 			EnemyTime = 0.0f;
-			if (enemyUnit->currentHP < (enemyUnit->maxHP/3))
-			{
-				EnemyHeal();
-			}
-			else
-			{
-				EnemyAttack();
-			}
+			EnemyTurn();
 		}
 	}
 	if (PlayerTime > 0.0f)
@@ -384,7 +417,7 @@ void GSPlay::Update(float deltaTime)
 			playerUnit->Reward(level);
 			PlayerHUD();
 			level++;
-			SetupBattle();
+			NewEnemy();
 		}
 	}
 }
@@ -394,6 +427,8 @@ void GSPlay::Draw()
 	m_background->Draw();
 	m_panel->Draw();
 	if(enemyUnit->currentHP>0)
+		m_hpbar1->Draw();
+	if (playerUnit->currentHP > 0)
 		m_hpbar->Draw();
 	m_score->Draw();
 	m_stat->Draw();
