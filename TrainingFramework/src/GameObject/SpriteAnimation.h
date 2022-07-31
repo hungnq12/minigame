@@ -26,9 +26,10 @@ public:
 	void		Set2DPosition(GLfloat x, GLfloat y);
 	void		SetRotation(Vector3 rotation);
 
+	void		SetCurrentAction(GLint x);
+
 	Vector2		Get2DPosition();
 	void		SetSize(GLint width, GLint height);
 
-	void SetCurrentAction(GLint x);
 };
 

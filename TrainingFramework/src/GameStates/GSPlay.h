@@ -1,4 +1,5 @@
 #pragma once
+#include <fstream>
 #include "GameStateBase.h"
 #include "Unit.h"
 
@@ -32,8 +33,14 @@ public:
 	std::shared_ptr<Unit> playerUnit;
 	std::shared_ptr<Unit> enemyUnit;
 
+	std::shared_ptr<SpriteAnimation> playerfx;
+	std::shared_ptr<SpriteAnimation> enemyfx;
+
 	enum BattleState { WIN, LOSE };
 	BattleState state;
+
+	void ReadFile();
+	void WriteFile();
 
 	void NewEnemy();
 	void PlayerTurn();
@@ -43,7 +50,6 @@ public:
 	void EnemyAttack();
 	void EnemyHeal();
 	void EndBattle();
-	void Shop();
 
 	void PlayerHUD();
 	void EnemyHUD();
@@ -57,14 +63,19 @@ public:
 
 	int level = 1;
 
+	bool playerTurn;
+
 private:
 	std::shared_ptr<Sprite2D>	m_background;
 	std::shared_ptr<Sprite2D>	m_panel;
 	std::shared_ptr<Sprite2D>	m_hpbar;
 	std::shared_ptr<Sprite2D>	m_hpbar1;
 	std::shared_ptr<Text>		m_score;
+	std::shared_ptr<Text>		m_gold;
 	std::shared_ptr<Text>		m_stat;
 	std::shared_ptr<Text>		m_stat1;
+	std::shared_ptr<Text>		m_atk;
+	std::shared_ptr<Text>		m_atk1;
 	std::list<std::shared_ptr<GameButton>>	m_listButton;
 	std::list<std::shared_ptr<SpriteAnimation>>	m_listAnimation;
 

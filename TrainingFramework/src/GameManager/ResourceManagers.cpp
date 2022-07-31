@@ -176,8 +176,7 @@ void ResourceManagers::AddSound(const std::string& name)
 	wave->load(sound.c_str());
 	m_MapWave.insert(std::pair<std::string, std::shared_ptr<SoLoud::Wav>>(name, wave));
 }
-
-void ResourceManagers::PlaySound(const std::string& name, bool loop)
+void ResourceManagers::PlaySound(const std::string& name, bool loop, float volumn)
 {
 	std::shared_ptr<SoLoud::Wav> wave;
 	auto it = m_MapWave.find(name);
@@ -193,6 +192,7 @@ void ResourceManagers::PlaySound(const std::string& name, bool loop)
 		m_MapWave.insert(std::pair<std::string, std::shared_ptr<SoLoud::Wav>>(name, wave));
 	}
 	wave->setLooping(loop);
+	wave->setVolume(volumn);
 	m_Soloud.play(*wave);
 }
 
@@ -205,4 +205,9 @@ void ResourceManagers::StopSound(const std::string& name)
 		wave = it->second;
 	}
 	m_Soloud.stopAudioSource(*wave);
+}
+
+void ResourceManagers::Mute()
+{
+	m_MapWave.erase(m_MapWave.begin(), m_MapWave.end());
 }

@@ -23,6 +23,8 @@ class Globals
 public:
 	static int Globals::screenWidth;
 	static int Globals::screenHeight;
+
+	static float volumn;
 };
 
 // define value

@@ -22,6 +22,8 @@ public:
 	void	Update(float deltaTime) override;
 	void	Draw() override;
 
+	void NewFile();
+
 private:
 	std::shared_ptr<Sprite2D>				m_background;
 	std::list<std::shared_ptr<GameButton>>	m_listButton;

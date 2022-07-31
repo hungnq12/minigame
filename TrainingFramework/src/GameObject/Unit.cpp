@@ -5,28 +5,29 @@ Unit::Unit(std::shared_ptr<Model> model, std::shared_ptr<Shader> shader, std::sh
 {
 }
 
+Unit::Unit(int level, int atk, int currentHP, int maxHP, int gold)
+{
+	this->level = level;
+	this->atk = atk;
+	this->currentHP = currentHP;
+	this->maxHP = maxHP;
+	this->gold = gold;
+}
 Unit::Unit()
 {
-}
 
+}
 Unit::~Unit()
 {
 }
 
-void Unit::SetPlayerStat(int level)
+void Unit::SetStat(int level, int atk, int currentHP, int maxHP, int gold)
 {
 	this->level = level;
-	this->atk = level * 5;
-	this->currentHP = level * 10;
-	this->maxHP = level * 10;
-}
-
-void Unit::SetEnemyStat(int level)
-{
-	this->level = level;
-	this->atk = level * 2;
-	this->currentHP = level * 7;
-	this->maxHP = level * 7;
+	this->atk = atk;
+	this->currentHP = currentHP;
+	this->maxHP = maxHP;
+	this->gold = gold;
 }
 
 bool Unit::TakeDamage(int dmg)
@@ -49,9 +50,9 @@ void Unit::Heal(int amount)
 
 void Unit::Reward(int level)
 {
-	this->atk += level;
-	this->currentHP += (level * 2);
-	this->maxHP += (level * 2);
-	this->gold += (level * 10);
+	this->atk ++;
+	this->currentHP +=5;
+	this->maxHP +=5;
+	this->gold +=5;
 
 }

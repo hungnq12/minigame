@@ -24,4 +24,3 @@ public:
 private:
 	std::shared_ptr<Camera> m_camera;
 };
-
